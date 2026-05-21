@@ -1,5 +1,16 @@
 {
-  "name": "paperclip",
+  "name": "atv-teams",
+  "version": "0.0.0",
+  "description": "ATV-Teams — open-source orchestration control plane for autonomous AI-agent companies. Built on the Paperclip control plane.",
+  "homepage": "https://github.com/shyamsridhar123/ATV-Teams",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shyamsridhar123/ATV-Teams.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shyamsridhar123/ATV-Teams/issues"
+  },
+  "license": "MIT",
   "private": true,
   "type": "module",
   "scripts": {

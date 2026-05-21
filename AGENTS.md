@@ -4,7 +4,7 @@ Guidance for human and AI contributors working in this repository.
 
 ## 1. Purpose
 
-Paperclip is a control plane for AI-agent companies.
+ATV-Teams (built on the upstream Paperclip control plane) is a control plane for AI-agent companies.
 The current implementation target is V1 and is defined in `doc/SPEC-implementation.md`.
 
 ## 2. Read This First
@@ -176,43 +176,29 @@ A change is done when all are true:
 4. Docs updated when behavior or commands change
 5. PR description follows the [PR template](.github/PULL_REQUEST_TEMPLATE.md) with all sections filled in (including Model Used)
 
-## 11. Fork-Specific: HenkDz/paperclip
+## 11. Fork-Specific: shyamsridhar123/ATV-Teams
 
-This is a fork of `paperclipai/paperclip` with QoL patches and an **external-only** Hermes adapter story on branch `feat/externalize-hermes-adapter` ([tree](https://github.com/HenkDz/paperclip/tree/feat/externalize-hermes-adapter)).
+This is the `shyamsridhar123/ATV-Teams` rebrand of the upstream Paperclip control plane (`paperclipai/paperclip`). The product is presented to end users as **ATV-Teams** while internal package names (`@paperclipai/*`), the `paperclipai` CLI binary, and the `~/.paperclip/` config directory are intentionally preserved for back-compat with the upstream install path and the existing lockfile.
 
-### Branch Strategy
+### Brand vs. internals
 
-- `feat/externalize-hermes-adapter` → core has **no** `hermes-paperclip-adapter` dependency and **no** built-in `hermes_local` registration. Install Hermes via the Adapter Plugin manager (`@henkey/hermes-paperclip-adapter` or a `file:` path).
-- Older fork branches may still document built-in Hermes; treat this file as authoritative for the externalize branch.
+- **Rebrand:** display name, READMEs, docs, UI titles, web manifest, CLI banner, and `package.json` identity (`name`, `description`, `homepage`, `repository`) → ATV-Teams.
+- **Kept as-is:** workspace package names (`@paperclipai/*`), CLI binary (`paperclipai`), user config dir (`~/.paperclip/`), runtime branding HTML comment markers, telemetry env var (`PAPERCLIP_TELEMETRY_DISABLED`).
+- When in doubt, prefer keeping internal identifiers stable; rebrand only user-visible strings.
 
-### Hermes (plugin only)
+### Repo identity
 
-- Register through **Board → Adapter manager** (same as Droid). Type remains `hermes_local` once the package is loaded.
-- UI uses generic **config-schema** + **ui-parser.js** from the package — no Hermes imports in `server/` or `ui/` source.
-- Optional: `file:` entry in `~/.paperclip/adapter-plugins.json` for local dev of the adapter repo.
+- All `paperclipai/paperclip` and `HenkDz/paperclip` references in top-level docs point to `shyamsridhar123/ATV-Teams`.
+- External community URLs (`paperclip.ing`, Discord, Twitter) from upstream have been dropped. Add ATV-Teams equivalents here when they exist.
 
-### Local Dev
+### Adapter story
 
-- Fork runs on port 3101+ (auto-detects if 3100 is taken by upstream instance)
-- `npx vite build` hangs on NTFS — use `node node_modules/vite/bin/vite.js build` instead
-- Server startup from NTFS takes 30-60s — don't assume failure immediately
-- Kill ALL paperclip processes before starting: `pkill -f "paperclip"; pkill -f "tsx.*index.ts"`
-- Vite cache survives `rm -rf dist` — delete both: `rm -rf ui/dist ui/node_modules/.vite`
+- Built-in adapters in `packages/adapters/` (Claude, Codex, Cursor, Gemini, Grok, OpenClaw, OpenCode, Pi, ACPX) remain available.
+- External adapters can still be loaded as plugins via `~/.paperclip/adapter-plugins.json` per the upstream plugin-loader contract.
 
-### Fork QoL Patches (not in upstream)
+### Local Dev notes (inherited from the fork lineage)
 
-These are local modifications in the fork's UI. If re-copying source, these must be re-applied:
-
-1. **stderr_group** — amber accordion for MCP init noise in `RunTranscriptView.tsx`
-2. **tool_group** — accordion for consecutive non-terminal tools (write, read, search, browser)
-3. **Dashboard excerpt** — `LatestRunCard` strips markdown, shows first 3 lines/280 chars
-
-### Plugin System
-
-PR #2218 (`feat/external-adapter-phase1`) adds external adapter support. See root `AGENTS.md` for full details.
-
-- Adapters can be loaded as external plugins via `~/.paperclip/adapter-plugins.json`
-- The plugin-loader should have ZERO hardcoded adapter imports — pure dynamic loading
-- `createServerAdapter()` must include ALL optional fields (especially `detectModel`)
-- Built-in UI adapters can shadow external plugin parsers — remove built-in when fully externalizing
-- Reference external adapters: Hermes (`@henkey/hermes-paperclip-adapter` or `file:`) and Droid (npm)
+- Server can run on port 3101+ if 3100 is taken by an upstream instance.
+- On NTFS, prefer `node node_modules/vite/bin/vite.js build` over `npx vite build`; server startup from NTFS can take 30–60s.
+- Kill stale processes before starting: `pkill -f "paperclip"; pkill -f "tsx.*index.ts"`.
+- Vite cache survives `rm -rf dist`; delete both `ui/dist` and `ui/node_modules/.vite`.

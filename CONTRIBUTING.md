@@ -12,14 +12,13 @@ We really appreciate both small fixes and thoughtful larger changes.
 - Touch the **smallest possible number of files**
 - Make sure the change is very targeted and easy to review
 - All tests pass and CI is green
-- Greptile score is 5/5 with all comments addressed
 - Use the [PR template](.github/PULL_REQUEST_TEMPLATE.md)
 
 These almost always get merged quickly when they're clean.
 
 ### Path 2: Bigger or Impactful Changes
 
-- **First** talk about it in Discord → #dev channel  
+- **First** open an issue to discuss it  
   → Describe what you're trying to solve  
   → Share rough ideas / approach
 - Once there's rough agreement, build it
@@ -28,7 +27,6 @@ These almost always get merged quickly when they're clean.
   - Clear description of what & why
   - Proof it works (manual testing notes)
   - All tests passing and CI green
-  - Greptile score 5/5 with all comments addressed
   - [PR template](.github/PULL_REQUEST_TEMPLATE.md) fully filled out
 
 PRs that follow this path are **much** more likely to be accepted, even when they're large.
@@ -49,18 +47,18 @@ All tests must pass before a PR can be merged. Run them locally first and verify
 
 ### Greptile Review
 
-We use [Greptile](https://greptile.com) for automated code review. Your PR must achieve a **5/5 Greptile score** with **all Greptile comments addressed** before it can be merged. If Greptile leaves comments, fix or respond to each one and request a re-review.
+Optional: if [Greptile](https://greptile.com) is enabled for the repo, address its comments and aim for a passing score before requesting human review.
 
 ## Feature Contributions
 
-We actively manage the core Paperclip feature roadmap.
+We actively manage the core ATV-Teams feature roadmap.
 
 Uncoordinated feature PRs against the core product may be closed, even when the implementation is thoughtful and high quality. That is about roadmap ownership, product coherence, and long-term maintenance commitment, not a judgment about the effort.
 
 If you want to contribute a feature:
 
 - Check [ROADMAP.md](ROADMAP.md) first
-- Start the discussion in Discord -> `#dev` before writing code
+- Open an issue to discuss before writing code
 - If the idea fits as an extension, prefer building it with the [plugin system](doc/plugins/PLUGIN_SPEC.md)
 - If you want to show a possible direction, reference implementations are welcome as feedback, but they generally will not be merged directly into core
 
@@ -80,16 +78,16 @@ Your PR description must follow the [PR template](.github/PULL_REQUEST_TEMPLATE.
 
 ### Thinking Path Example 1:
 
-> - Paperclip orchestrates ai-agents for zero-human companies
+> - ATV-Teams orchestrates ai-agents for zero-human companies
 > - There are many types of adapters for each LLM model provider
 > - But LLM's have a context limit and not all agents can automatically compact their context
 > - So we need to have an adapter-specific configuration for which adapters can and cannot automatically compact their context
-> - This pull request adds per-adapter configuration of compaction, either auto or paperclip managed
-> - That way we can get optimal performance from any adapter/provider in Paperclip
+> - This pull request adds per-adapter configuration of compaction, either auto or platform managed
+> - That way we can get optimal performance from any adapter/provider in ATV-Teams
 
 ### Thinking Path Example 2:
 
-> - Paperclip orchestrates ai-agents for zero-human companies
+> - ATV-Teams orchestrates ai-agents for zero-human companies
 > - But humans want to watch the agents and oversee their work
 > - Human users also operate in teams and so they need their own logins, profiles, views etc.
 > - So we have a multi-user system for humans
@@ -104,6 +102,6 @@ This should include details about what you did, why you did it, why it matters &
 
 Please include screenshots if possible if you have a visible change. (use something like the [agent-browser skill](https://github.com/vercel-labs/agent-browser/blob/main/skills/agent-browser/SKILL.md) or similar to take screenshots). Ideally, you include before and after screenshots.
 
-Questions? Just ask in #dev — we're happy to help.
+Questions? Open an issue — we're happy to help.
 
 Happy hacking!
