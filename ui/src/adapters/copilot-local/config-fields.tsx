@@ -9,7 +9,7 @@ const instructionsFileHint =
   "Absolute path to a markdown file (e.g. AGENTS.md) that defines this agent's behavior. Prepended to the prompt at runtime.";
 
 const credentialSecretKeyHint =
-  "Company-secrets key under which this agent's GitHub Copilot OAuth token is stored. Default: `copilot_oauth_token`. Complete the device flow from the Copilot connection panel before running this agent.";
+  "Company-secrets key under which this agent's GitHub Copilot OAuth token is stored. Default: `copilot_oauth_token`. The user-facing OAuth device-flow dialog is a Phase 3 deliverable; until then, the token must be seeded out-of-band into `company_secrets` under this key.";
 
 export function CopilotLocalConfigFields({
   isCreate,

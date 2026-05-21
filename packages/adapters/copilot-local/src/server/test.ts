@@ -104,6 +104,11 @@ export async function testEnvironment(
         "Complete the GitHub OAuth device flow from the agent settings, then set `credentialSecretKey` on this agent.",
     });
   } else {
+    // NOTE: this only verifies that a secret KEY is configured on the agent.
+    // It does not call into the secret store to verify the underlying token
+    // exists, is unrevoked, and still works against api.github.com. That
+    // deeper probe is intentionally deferred to the Phase 3 device-flow UI,
+    // which also gates token issuance through this code path.
     checks.push({
       code: "copilot_oauth_secret_key_configured",
       level: "info",

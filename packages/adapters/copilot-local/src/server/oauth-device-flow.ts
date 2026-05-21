@@ -139,9 +139,11 @@ export async function runDeviceFlow(options: RunDeviceFlowOptions): Promise<RunD
   await options.onUserCode(code);
 
   const start = now();
-  // GitHub server-provided `interval` is the minimum allowed; clamp to >= 1s
-  // to avoid hammering the endpoint if a buggy server returns 0.
-  let intervalSec = Math.max(1, Math.floor(code.interval));
+    // GitHub server-provided `interval` is the minimum allowed; clamp to >= 1s
+    // to avoid hammering the endpoint if a buggy server returns 0, and use
+    // `Math.ceil` so a fractional interval is rounded UP and we never sleep
+    // less than the server requested.
+    let intervalSec = Math.max(1, Math.ceil(code.interval));
   const expiresAtMs = start + code.expires_in * 1000;
 
   // First wait — RFC 8628 §3.4 says the client SHOULD wait at least `interval`
@@ -173,7 +175,7 @@ export async function runDeviceFlow(options: RunDeviceFlowOptions): Promise<RunD
         // Per RFC 8628 §3.5, on slow_down the client MUST increase the
         // polling interval by 5 seconds, OR honour any explicit retry hint
         // provided by the server (GitHub returns an `interval` field).
-        intervalSec = Math.max(intervalSec + 5, Math.floor(result.retry_after_seconds || 0));
+        intervalSec = Math.max(intervalSec + 5, Math.ceil(result.retry_after_seconds || 0));
         continue;
       case "denied":
         throw new DeviceFlowError("access_denied", "The user denied the authorization request.");
