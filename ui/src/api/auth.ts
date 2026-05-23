@@ -109,6 +109,23 @@ export const authApi = {
     await authPost("/sign-in/email", input);
   },
 
+  signInGitHub: async (input: { callbackURL?: string } = {}) => {
+    const payload = (await authPost("/sign-in/social", {
+      provider: "github",
+      callbackURL: input.callbackURL ?? "/",
+    })) as { url?: string; redirect?: boolean } | null;
+    const url = payload && typeof payload.url === "string" ? payload.url : null;
+    if (!url) {
+      throw new AuthApiError(
+        "GitHub sign-in is not configured on this instance.",
+        500,
+        payload,
+        "github_oauth_unavailable",
+      );
+    }
+    window.location.assign(url);
+  },
+
   signUpEmail: async (input: { name: string; email: string; password: string }) => {
     await authPost("/sign-up/email", input);
   },
