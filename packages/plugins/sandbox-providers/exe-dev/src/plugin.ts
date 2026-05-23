@@ -70,10 +70,10 @@ const EXE_DEV_SSH_ONBOARDING_MARKER = "Please complete registration by running: 
 const EXE_DEV_SSH_EMAIL_PROMPT = "Please enter your email address:";
 
 // exe.dev's `--setup-script` runs at VM init as the unprivileged `exedev` user, which
-// has passwordless sudo. The Paperclip sandbox callback bridge is a Node script, so
-// every Paperclip workload on this provider needs node on PATH before the bridge can
+// has passwordless sudo. The ATV-Teams sandbox callback bridge is a Node script, so
+// every ATV-Teams workload on this provider needs node on PATH before the bridge can
 // start. When the operator hasn't supplied their own setup script, install Node 20 via
-// nodesource so the VM comes up ready for Paperclip out of the box.
+// nodesource so the VM comes up ready for ATV-Teams out of the box.
 const DEFAULT_SETUP_SCRIPT =
   "command -v node >/dev/null 2>&1 || " +
   "(curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - && " +
@@ -493,7 +493,7 @@ function formatSshFailure(
     || combinedOutput.includes(EXE_DEV_SSH_EMAIL_PROMPT)
   ) {
     return [
-      `Failed to ${action} exe.dev VM ${vmName}: the Paperclip host SSH key is not registered with exe.dev.`,
+      `Failed to ${action} exe.dev VM ${vmName}: the ATV-Teams host SSH key is not registered with exe.dev.`,
       "Complete exe.dev's one-time SSH onboarding on this host by running `ssh exe.dev` and following the email verification prompt, then retry.",
     ].join(" ");
   }
@@ -688,7 +688,7 @@ const plugin = definePlugin({
     }
 
     warnings.push(
-      "The Paperclip host must have SSH access to the created exe.dev VM, and its SSH key must be registered with exe.dev. The API token only covers provisioning.",
+      "The ATV-Teams host must have SSH access to the created exe.dev VM, and its SSH key must be registered with exe.dev. The API token only covers provisioning.",
     );
     if (config.reuseLease) {
       warnings.push("reuseLease keeps the VM alive between runs; this provider does not suspend retained VMs.");

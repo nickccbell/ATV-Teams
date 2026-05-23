@@ -81,7 +81,7 @@ describeEmbeddedPostgres("companySearchService", () => {
     await tempDb?.cleanup();
   });
 
-  async function createCompany(name = "Paperclip") {
+  async function createCompany(name = "ATV-Teams") {
     const companyId = randomUUID();
     await db.insert(companies).values({
       id: companyId,

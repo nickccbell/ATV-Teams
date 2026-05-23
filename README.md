@@ -378,7 +378,7 @@ This is the short roadmap preview. See the full roadmap in [ROADMAP.md](ROADMAP.
 
 ## Telemetry
 
-ATV-Teams inherits the upstream Paperclip anonymous usage telemetry to help understand how the product is used and improve it. No personal information, issue content, prompts, file paths, or secrets are ever collected. Private repository references are hashed with a per-install salt before being sent.
+ATV-Teams inherits the upstream ATV-Teams anonymous usage telemetry to help understand how the product is used and improve it. No personal information, issue content, prompts, file paths, or secrets are ever collected. Private repository references are hashed with a per-install salt before being sent.
 
 Telemetry is **enabled by default** and can be disabled with any of the following:
 
@@ -404,11 +404,11 @@ We welcome contributions. See the [contributing guide](CONTRIBUTING.md) for deta
 
 ## Acknowledgements
 
-ATV-Teams is built on the open-source [Paperclip](https://github.com/paperclipai/paperclip) control plane. Internal package names (`@paperclipai/*`), the `paperclipai` CLI binary, and the `~/.paperclip/` config directory are preserved for compatibility with the upstream install path.
+ATV-Teams is built on the open-source [ATV-Teams](https://github.com/paperclipai/paperclip) control plane. Internal package names (`@paperclipai/*`), the `paperclipai` CLI binary, and the `~/.paperclip/` config directory are preserved for compatibility with the upstream install path.
 
 ## License
 
-MIT &copy; 2026 ATV-Teams contributors. Portions © Paperclip contributors under MIT.
+MIT &copy; 2026 ATV-Teams contributors. Portions © ATV-Teams contributors under MIT.
 
 ---
 

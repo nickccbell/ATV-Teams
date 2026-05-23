@@ -87,7 +87,7 @@ describeEmbeddedPostgres("issueReferenceService", () => {
 
     await db.insert(companies).values({
       id: companyId,
-      name: "Paperclip",
+      name: "ATV-Teams",
       issuePrefix: `R${companyId.replace(/-/g, "").slice(0, 6).toUpperCase()}`,
       requireBoardApprovalForNewAgents: false,
     });
@@ -185,7 +185,7 @@ describeEmbeddedPostgres("issueReferenceService", () => {
 
     await db.insert(companies).values({
       id: companyId,
-      name: "Paperclip Backfill",
+      name: "ATV-Teams Backfill",
       issuePrefix: `B${companyId.replace(/-/g, "").slice(0, 6).toUpperCase()}`,
       requireBoardApprovalForNewAgents: false,
     });

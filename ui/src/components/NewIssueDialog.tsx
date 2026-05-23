@@ -52,7 +52,7 @@ import {
   AlertTriangle,
   Tag,
   Calendar,
-  Paperclip,
+  Paperclip as PaperclipIcon,
   FileText,
   Flag,
   Loader2,
@@ -68,7 +68,7 @@ import { MarkdownEditor, type MarkdownEditorRef, type MentionOption } from "./Ma
 import { AgentIcon } from "./AgentIconPicker";
 import { InlineEntitySelector, type InlineEntityOption } from "./InlineEntitySelector";
 
-const DRAFT_KEY = "paperclip:issue-draft";
+const DRAFT_KEY = "atv-teams:issue-draft";
 const DEBOUNCE_MS = 800;
 
 
@@ -1226,7 +1226,7 @@ export function NewIssueDialog() {
           // their default prevented. Telling Radix "this event is handled" skips
           // that preventDefault, restoring popover scroll and autocomplete taps.
           const target = event.detail.originalEvent.target as HTMLElement | null;
-          if (target?.closest("[data-radix-popper-content-wrapper], [data-paperclip-floating-ui]")) {
+          if (target?.closest("[data-radix-popper-content-wrapper], [data-atv-floating-ui]")) {
             event.preventDefault();
           }
         }}
@@ -1806,7 +1806,7 @@ export function NewIssueDialog() {
                       <div key={file.id} className="flex items-start justify-between gap-3 rounded-md border border-border/70 px-3 py-2">
                         <div className="min-w-0">
                           <div className="flex items-center gap-2">
-                            <Paperclip className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
+                            <PaperclipIcon className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
                             <span className="truncate text-sm">{file.file.name}</span>
                           </div>
                           <div className="mt-1 text-[11px] text-muted-foreground">
@@ -1918,7 +1918,7 @@ export function NewIssueDialog() {
             onClick={() => stageFileInputRef.current?.click()}
             disabled={createIssue.isPending}
           >
-            <Paperclip className="h-3 w-3" />
+            <PaperclipIcon className="h-3 w-3" />
             Upload
           </button>
 

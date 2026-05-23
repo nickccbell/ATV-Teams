@@ -240,7 +240,7 @@ function PluginSdkIssuesList({
   companyId,
   projectId = null,
   filters,
-  viewStateKey = "paperclip:plugin-issues-view",
+  viewStateKey = "atv-teams:plugin-issues-view",
   initialSearch,
   createIssueLabel,
   searchWithinLoadedIssues = true,

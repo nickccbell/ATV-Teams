@@ -307,7 +307,7 @@ describe("server adapter registry", () => {
     expect(detectModel).toHaveBeenCalledTimes(1);
   });
 
-  it("injects the local agent JWT and Paperclip API auth guidance into Hermes", async () => {
+  it("injects the local agent JWT and ATV-Teams API auth guidance into Hermes", async () => {
     const adapter = requireServerAdapter("hermes_local");
 
     await adapter.execute({
@@ -416,7 +416,7 @@ describe("server adapter registry", () => {
     expect(hermesExecuteMock).toHaveBeenCalledWith(ctx);
   });
 
-  it("preserves an explicit Hermes Paperclip API key and does not set promptTemplate when none was configured", async () => {
+  it("preserves an explicit Hermes ATV-Teams API key and does not set promptTemplate when none was configured", async () => {
     const adapter = requireServerAdapter("hermes_local");
 
     await adapter.execute({

@@ -455,7 +455,7 @@ describe("renderPaperclipWakePrompt", () => {
       fallbackFetchNeeded: false,
     });
 
-    expect(prompt).toContain("## Paperclip Wake Payload");
+    expect(prompt).toContain("## ATV-Teams Wake Payload");
     expect(prompt).toContain("Execution contract: take concrete action in this heartbeat");
     expect(prompt).toContain("clear final disposition");
     expect(prompt).toContain("evidence, not valid liveness paths by themselves");
@@ -916,7 +916,7 @@ describe("rewriteWorkspaceCwdEnvVarsForExecution", () => {
 });
 
 describe("refreshPaperclipWorkspaceEnvForExecution", () => {
-  it("rewrites Paperclip workspace env to the prepared remote runtime cwd", () => {
+  it("rewrites ATV-Teams workspace env to the prepared remote runtime cwd", () => {
     const env: Record<string, string> = {
       PAPERCLIP_WORKSPACE_CWD: "/remote/workspace",
       PAPERCLIP_WORKSPACE_WORKTREE_PATH: "/host/worktree",

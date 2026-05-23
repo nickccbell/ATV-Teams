@@ -37,7 +37,7 @@ describe("plugin managed skill validators", () => {
     version: "0.1.0",
     displayName: "Managed Skills",
     description: "Managed skills test plugin.",
-    author: "Paperclip",
+    author: "ATV-Teams",
     categories: ["automation"],
     entrypoints: { worker: "./dist/worker.js" },
   } as const;

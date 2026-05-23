@@ -210,7 +210,7 @@ function createDbStub(options: { requireBoardApprovalForNewAgents?: boolean } = 
           then: vi.fn((resolve) =>
             Promise.resolve(resolve([{
               id: companyId,
-              name: "Paperclip",
+              name: "ATV-Teams",
               requireBoardApprovalForNewAgents: options.requireBoardApprovalForNewAgents ?? false,
             }])),
           ),

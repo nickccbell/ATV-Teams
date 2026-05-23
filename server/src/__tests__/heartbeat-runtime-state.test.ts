@@ -54,7 +54,7 @@ describeEmbeddedPostgres("heartbeat runtime state deduplication", () => {
 
     await db.insert(companies).values({
       id: companyId,
-      name: "Paperclip",
+      name: "ATV-Teams",
       issuePrefix,
       requireBoardApprovalForNewAgents: false,
     });

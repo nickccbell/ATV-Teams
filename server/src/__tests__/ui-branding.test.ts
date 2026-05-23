@@ -9,14 +9,14 @@ import {
 
 const TEMPLATE = `<!doctype html>
 <head>
-    <!-- PAPERCLIP_RUNTIME_BRANDING_START -->
-    <!-- PAPERCLIP_RUNTIME_BRANDING_END -->
-    <!-- PAPERCLIP_FAVICON_START -->
+    <!-- ATV_TEAMS_RUNTIME_BRANDING_START -->
+    <!-- ATV_TEAMS_RUNTIME_BRANDING_END -->
+    <!-- ATV_TEAMS_FAVICON_START -->
     <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <!-- PAPERCLIP_FAVICON_END -->
+    <!-- ATV_TEAMS_FAVICON_END -->
 </head>`;
 
 describe("ui branding", () => {
@@ -60,9 +60,9 @@ describe("ui branding", () => {
         PAPERCLIP_WORKTREE_COLOR: "#4f86f7",
       }),
     );
-    expect(meta).toContain('name="paperclip-worktree-name"');
+    expect(meta).toContain('name="atv-teams-worktree-name"');
     expect(meta).toContain('content="paperclip-pr-432"');
-    expect(meta).toContain('name="paperclip-worktree-color"');
+    expect(meta).toContain('name="atv-teams-worktree-color"');
   });
 
   it("rewrites the favicon and runtime branding blocks for worktree instances only", () => {
@@ -72,11 +72,11 @@ describe("ui branding", () => {
       PAPERCLIP_WORKTREE_COLOR: "#4f86f7",
     });
     expect(branded).toContain("data:image/svg+xml,");
-    expect(branded).toContain('name="paperclip-worktree-name"');
+    expect(branded).toContain('name="atv-teams-worktree-name"');
     expect(branded).not.toContain('href="/favicon.svg"');
 
     const defaultHtml = applyUiBranding(TEMPLATE, {});
     expect(defaultHtml).toContain('href="/favicon.svg"');
-    expect(defaultHtml).not.toContain('name="paperclip-worktree-name"');
+    expect(defaultHtml).not.toContain('name="atv-teams-worktree-name"');
   });
 });

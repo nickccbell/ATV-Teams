@@ -502,7 +502,7 @@ describe("secret routes", () => {
             externalRef: "arn:aws:secretsmanager:us-east-1:123456789012:secret:prod/openai",
             name: "OpenAI API key",
             key: "openai-api-key",
-            description: "Operator-entered Paperclip description",
+            description: "Operator-entered ATV-Teams description",
           },
         ],
       });
@@ -517,7 +517,7 @@ describe("secret routes", () => {
             externalRef: "arn:aws:secretsmanager:us-east-1:123456789012:secret:prod/openai",
             name: "OpenAI API key",
             key: "openai-api-key",
-            description: "Operator-entered Paperclip description",
+            description: "Operator-entered ATV-Teams description",
           },
         ],
       },

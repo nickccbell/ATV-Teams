@@ -264,7 +264,7 @@ function RemovableIssueReferencePill({
       <span
         data-mention-kind="issue"
         className={cn(
-          "paperclip-mention-chip paperclip-mention-chip--issue group",
+          "atv-mention-chip atv-mention-chip--issue group",
           "inline-flex items-center gap-1 rounded-full border border-border py-0.5 pl-1 pr-2 text-xs",
         )}
         title={issue.title}

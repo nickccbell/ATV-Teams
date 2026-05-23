@@ -133,7 +133,7 @@ const adapterSchema: JsonSchemaNode = {
       type: "string",
       title: "API key",
       format: "secret-ref",
-      description: "Stored with the active Paperclip secret provider.",
+      description: "Stored with the active ATV-Teams secret provider.",
     },
     concurrency: {
       type: "integer",
@@ -289,7 +289,7 @@ const storybookProject: Project = {
   urlKey: "board-ui",
   goalId: "goal-company",
   goalIds: ["goal-company"],
-  goals: [{ id: "goal-company", title: "We're building Paperclip" }],
+  goals: [{ id: "goal-company", title: "We're building ATV-Teams" }],
   name: "Board UI",
   description: "Control-plane interface, Storybook review surfaces, and operator workflows.",
   status: "in_progress",
@@ -635,7 +635,7 @@ function FormsEditorsShowcase() {
         <div className="flex flex-wrap items-start justify-between gap-5">
           <div>
             <div className="paperclip-story__label">Forms and editors</div>
-            <h1 className="mt-2 text-3xl font-semibold tracking-tight">Paperclip form controls under realistic state</h1>
+            <h1 className="mt-2 text-3xl font-semibold tracking-tight">ATV-Teams form controls under realistic state</h1>
             <p className="mt-3 max-w-3xl text-sm leading-6 text-muted-foreground">
               Dense control-plane forms need to hold empty, filled, validation, and disabled states without losing scan
               speed. These fixtures keep the components reviewable outside production routes.
@@ -710,7 +710,7 @@ const meta = {
     docs: {
       description: {
         component:
-          "Fixture-backed stories for Paperclip form controls, markdown editors, inline editors, schedule controls, runtime-variable dialogs, and selection pickers.",
+          "Fixture-backed stories for ATV-Teams form controls, markdown editors, inline editors, schedule controls, runtime-variable dialogs, and selection pickers.",
       },
     },
   },

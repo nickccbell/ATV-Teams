@@ -383,7 +383,7 @@ const issueChatComments: IssueChatComment[] = [
     id: "comment-issue-agent",
     authorAgentId: codexAgent.id,
     authorUserId: null,
-    body: "I kept the existing component contracts and added fixtures with realistic Paperclip work: checkout, comments, linked runs, and review feedback.",
+    body: "I kept the existing component contracts and added fixtures with realistic ATV-Teams work: checkout, comments, linked runs, and review feedback.",
     createdAt: new Date("2026-04-20T13:50:00.000Z"),
     runId: "run-issue-chat-01",
     runAgentId: codexAgent.id,
@@ -395,7 +395,7 @@ const issueChatComments: IssueChatComment[] = [
     authorUserId: null,
     runId: "run-issue-chat-01",
     runAgentId: codexAgent.id,
-    body: "Paperclip needs a disposition before this issue can continue.",
+    body: "ATV-Teams needs a disposition before this issue can continue.",
     presentation: {
       kind: "system_notice",
       tone: "warning",
@@ -473,7 +473,7 @@ const issueThreadNoticeReviewComments: IssueChatComment[] = [
     authorUserId: null,
     runId: "run-notice-source",
     runAgentId: codexAgent.id,
-    body: "Paperclip needs a disposition before this issue can continue.",
+    body: "ATV-Teams needs a disposition before this issue can continue.",
     presentation: {
       kind: "system_notice",
       tone: "warning",
@@ -815,7 +815,7 @@ function ChatCommentsStories() {
           <h1 className="mt-2 text-3xl font-semibold tracking-tight">Threaded work conversations</h1>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-muted-foreground">
             Fixture-backed coverage for classic issue comments, embedded run chat, and the assistant-style issue chat
-            surface. The scenarios use Paperclip operational content with mixed authors, system timeline events,
+            surface. The scenarios use ATV-Teams operational content with mixed authors, system timeline events,
             markdown, code blocks, @mentions, links, queued comments, tool calls, and streaming run output.
           </p>
         </section>

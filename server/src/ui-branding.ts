@@ -1,7 +1,7 @@
-const FAVICON_BLOCK_START = "<!-- PAPERCLIP_FAVICON_START -->";
-const FAVICON_BLOCK_END = "<!-- PAPERCLIP_FAVICON_END -->";
-const RUNTIME_BRANDING_BLOCK_START = "<!-- PAPERCLIP_RUNTIME_BRANDING_START -->";
-const RUNTIME_BRANDING_BLOCK_END = "<!-- PAPERCLIP_RUNTIME_BRANDING_END -->";
+const FAVICON_BLOCK_START = "<!-- ATV_TEAMS_FAVICON_START -->";
+const FAVICON_BLOCK_END = "<!-- ATV_TEAMS_FAVICON_END -->";
+const RUNTIME_BRANDING_BLOCK_START = "<!-- ATV_TEAMS_RUNTIME_BRANDING_START -->";
+const RUNTIME_BRANDING_BLOCK_END = "<!-- ATV_TEAMS_RUNTIME_BRANDING_END -->";
 
 const DEFAULT_FAVICON_LINKS = [
   '<link rel="icon" href="/favicon.ico" sizes="48x48" />',
@@ -182,10 +182,10 @@ export function renderRuntimeBrandingMeta(branding: WorktreeUiBranding): string 
   if (!branding.enabled || !branding.name || !branding.color || !branding.textColor) return "";
 
   return [
-    '<meta name="paperclip-worktree-enabled" content="true" />',
-    `<meta name="paperclip-worktree-name" content="${escapeHtmlAttribute(branding.name)}" />`,
-    `<meta name="paperclip-worktree-color" content="${escapeHtmlAttribute(branding.color)}" />`,
-    `<meta name="paperclip-worktree-text-color" content="${escapeHtmlAttribute(branding.textColor)}" />`,
+    '<meta name="atv-teams-worktree-enabled" content="true" />',
+    `<meta name="atv-teams-worktree-name" content="${escapeHtmlAttribute(branding.name)}" />`,
+    `<meta name="atv-teams-worktree-color" content="${escapeHtmlAttribute(branding.color)}" />`,
+    `<meta name="atv-teams-worktree-text-color" content="${escapeHtmlAttribute(branding.textColor)}" />`,
   ].join("\n");
 }
 

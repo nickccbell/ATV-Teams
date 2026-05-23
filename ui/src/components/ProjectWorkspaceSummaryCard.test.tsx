@@ -110,7 +110,7 @@ describe("ProjectWorkspaceSummaryCard", () => {
     act(() => {
       root.render(
         <ProjectWorkspaceSummaryCard
-          projectRef="paperclip-app"
+          projectRef="atv-app"
           summary={createSummary()}
           runtimeActionKey={null}
           runtimeActionPending={false}
@@ -148,7 +148,7 @@ describe("ProjectWorkspaceSummaryCard", () => {
     act(() => {
       root.render(
         <ProjectWorkspaceSummaryCard
-          projectRef="paperclip-app"
+          projectRef="atv-app"
           summary={createSummary({
             key: "project:workspace-2",
             kind: "project_workspace",
@@ -165,7 +165,7 @@ describe("ProjectWorkspaceSummaryCard", () => {
       );
     });
 
-    const titleLink = container.querySelector("a[href='/projects/paperclip-app/workspaces/workspace-1']");
+    const titleLink = container.querySelector("a[href='/projects/atv-app/workspaces/workspace-1']");
     expect(titleLink).not.toBeNull();
     expect(container.textContent).not.toContain("Close workspace");
     expect(container.textContent).not.toContain("Start services");
@@ -181,7 +181,7 @@ describe("ProjectWorkspaceSummaryCard", () => {
     act(() => {
       root.render(
         <ProjectWorkspaceSummaryCard
-          projectRef="paperclip-app"
+          projectRef="atv-app"
           summary={createSummary({
             executionWorkspaceStatus: "cleanup_failed" as ExecutionWorkspace["status"],
           })}
@@ -210,7 +210,7 @@ describe("ProjectWorkspaceSummaryCard", () => {
     await act(async () => {
       root.render(
         <ProjectWorkspaceSummaryCard
-          projectRef="paperclip-app"
+          projectRef="atv-app"
           summary={summary}
           runtimeActionKey={null}
           runtimeActionPending={false}
@@ -260,7 +260,7 @@ describe("ProjectWorkspaceSummaryCard", () => {
     act(() => {
       root.render(
         <ProjectWorkspaceSummaryCard
-          projectRef="paperclip-app"
+          projectRef="atv-app"
           summary={createSummary({
             primaryServiceUrl: "http://127.0.0.1:62475",
             primaryServiceUrlRunning: true,

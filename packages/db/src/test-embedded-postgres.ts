@@ -76,7 +76,7 @@ async function getAvailablePort(): Promise<number> {
   }
 
   throw new Error(
-    `Failed to allocate embedded Postgres test port outside reserved Paperclip ports: ${[
+    `Failed to allocate embedded Postgres test port outside reserved ATV-Teams ports: ${[
       ...reservedPorts,
     ].join(", ")}`,
   );

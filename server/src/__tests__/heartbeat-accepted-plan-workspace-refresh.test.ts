@@ -60,7 +60,7 @@ async function createGitRepo() {
   const repoRoot = await mkdtemp(path.join(os.tmpdir(), "paperclip-accepted-plan-repo-"));
   await execFileAsync("git", ["init"], { cwd: repoRoot });
   await execFileAsync("git", ["config", "user.email", "paperclip-test@example.com"], { cwd: repoRoot });
-  await execFileAsync("git", ["config", "user.name", "Paperclip Test"], { cwd: repoRoot });
+  await execFileAsync("git", ["config", "user.name", "ATV-Teams Test"], { cwd: repoRoot });
   await writeFile(path.join(repoRoot, "README.md"), "accepted plan workspace refresh\n");
   await execFileAsync("git", ["add", "README.md"], { cwd: repoRoot });
   await execFileAsync("git", ["commit", "-m", "initial"], { cwd: repoRoot });

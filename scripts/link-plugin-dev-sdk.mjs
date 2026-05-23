@@ -30,6 +30,17 @@ try {
 }
 
 const relativeSdkDir = relative(scopeDir, sdkDir);
-symlinkSync(relativeSdkDir, linkTarget, "dir");
+try {
+  symlinkSync(relativeSdkDir, linkTarget, "dir");
+} catch (err) {
+  // On Windows, regular "dir" symlinks require admin or Developer Mode.
+  // Junctions work for directories without elevation. Use the absolute path
+  // because junctions cannot be relative.
+  if (err && (err.code === "EPERM" || err.code === "EACCES") && process.platform === "win32") {
+    symlinkSync(sdkDir, linkTarget, "junction");
+  } else {
+    throw err;
+  }
+}
 
 console.log(`  ✓ Linked local @paperclipai/plugin-sdk for ${packageDir}`);

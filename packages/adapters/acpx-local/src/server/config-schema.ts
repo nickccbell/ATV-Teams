@@ -34,19 +34,19 @@ export function getConfigSchema(): AdapterConfigSchema {
           { value: "deny", label: "Deny" },
           { value: "fail", label: "Fail" },
         ],
-        hint: "Fallback if the ACP agent asks for input outside an interactive session. Paperclip still auto-approves permissions by default.",
+        hint: "Fallback if the ACP agent asks for input outside an interactive session. ATV-Teams still auto-approves permissions by default.",
       },
       {
         key: "cwd",
         label: "Working directory",
         type: "text",
-        hint: "Absolute fallback directory. Paperclip execution workspaces can override this at runtime.",
+        hint: "Absolute fallback directory. ATV-Teams execution workspaces can override this at runtime.",
       },
       {
         key: "stateDir",
         label: "State directory",
         type: "text",
-        hint: "Optional ACPX session state directory. Defaults to Paperclip-managed company/agent scoped storage.",
+        hint: "Optional ACPX session state directory. Defaults to ATV-Teams-managed company/agent scoped storage.",
       },
       {
         key: "fastMode",

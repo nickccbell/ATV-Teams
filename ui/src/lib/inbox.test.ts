@@ -1073,7 +1073,7 @@ describe("inbox helpers", () => {
   });
 
   it("normalizes invalid inbox filter storage back to safe defaults", () => {
-    localStorage.setItem("paperclip:inbox:filters:company-1", JSON.stringify({
+    localStorage.setItem("atv-teams:inbox:filters:company-1", JSON.stringify({
       allCategoryFilter: "bogus",
       allApprovalFilter: "bogus",
       issueFilters: {
@@ -1231,7 +1231,7 @@ describe("inbox helpers", () => {
   });
 
   it("maps legacy new-tab storage to mine", () => {
-    localStorage.setItem("paperclip:inbox:last-tab", "new");
+    localStorage.setItem("atv-teams:inbox:last-tab", "new");
     expect(loadLastInboxTab()).toBe("mine");
   });
 
@@ -1375,11 +1375,11 @@ describe("inbox helpers", () => {
 
     expect(groupInboxWorkItems(items, "project", {
       projectById: new Map([
-        ["project-1", { name: "Paperclip App" }],
+        ["project-1", { name: "ATV-Teams App" }],
         ["project-2", { name: "Onboarding" }],
       ]),
     })).toEqual([
-      { key: "project:project-1", label: "Paperclip App", items: [items[0]] },
+      { key: "project:project-1", label: "ATV-Teams App", items: [items[0]] },
       { key: "kind:join_request", label: "Join requests", items: [items[2]] },
       { key: "project:project-2", label: "Onboarding", items: [items[1]] },
       { key: "project:none", label: "No project", items: [items[3]] },
@@ -1460,7 +1460,7 @@ describe("inbox helpers", () => {
 
   it("returns empty collapsed inbox groups for missing or invalid storage", () => {
     expect(loadCollapsedInboxGroupKeys("company-1")).toEqual(new Set());
-    localStorage.setItem("paperclip:inbox:collapsed-groups:company-1", JSON.stringify({ nope: true }));
+    localStorage.setItem("atv-teams:inbox:collapsed-groups:company-1", JSON.stringify({ nope: true }));
     expect(loadCollapsedInboxGroupKeys("company-1")).toEqual(new Set());
   });
 

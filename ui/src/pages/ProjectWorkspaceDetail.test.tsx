@@ -33,13 +33,13 @@ vi.mock("@/lib/router", () => ({
     <a href={to} className={className}>{children}</a>
   ),
   useLocation: () => ({
-    pathname: "/PAP/projects/paperclip-app/workspaces/workspace-1",
+    pathname: "/PAP/projects/atv-app/workspaces/workspace-1",
     search: mockRouteSearch.value,
     hash: "",
     state: null,
   }),
   useNavigate: () => mockNavigate,
-  useParams: () => ({ companyPrefix: "PAP", projectId: "paperclip-app", workspaceId: "workspace-1" }),
+  useParams: () => ({ companyPrefix: "PAP", projectId: "atv-app", workspaceId: "workspace-1" }),
 }));
 
 vi.mock("../context/CompanyContext", () => ({
@@ -127,11 +127,11 @@ function project(overrides: Partial<Project> = {}): Project {
   return {
     id: "project-1",
     companyId: "company-1",
-    urlKey: "paperclip-app",
+    urlKey: "atv-app",
     goalId: null,
     goalIds: [],
     goals: [],
-    name: "Paperclip App",
+    name: "ATV-Teams App",
     description: null,
     status: "in_progress",
     leadAgentId: null,
@@ -287,7 +287,7 @@ describe("ProjectWorkspaceDetail plugin tabs", () => {
     });
 
     expect(mockNavigate).toHaveBeenCalledWith(
-      "/projects/paperclip-app/workspaces/workspace-1?tab=plugin%3Apaperclip.quality%3Aquality-tab",
+      "/projects/atv-app/workspaces/workspace-1?tab=plugin%3Apaperclip.quality%3Aquality-tab",
     );
     expect(mockNavigate).not.toHaveBeenCalledWith(expect.stringContaining("diffView"));
     expect(mockNavigate).not.toHaveBeenCalledWith(expect.stringContaining("baseRef"));
@@ -310,7 +310,7 @@ describe("ProjectWorkspaceDetail plugin tabs", () => {
     await render();
 
     expect(container.textContent).toContain("Workspace plugin tab is not available.");
-    expect(container.querySelector('a[href="/projects/paperclip-app/workspaces/workspace-1?tab=configuration"]')?.textContent).toBe(
+    expect(container.querySelector('a[href="/projects/atv-app/workspaces/workspace-1?tab=configuration"]')?.textContent).toBe(
       "Back to configuration",
     );
     expect(container.querySelector('[data-testid="plugin-slot-mount"]')).toBeNull();

@@ -352,7 +352,7 @@ const preview: Preview = {
   ],
   globalTypes: {
     theme: {
-      description: "Paperclip color mode",
+      description: "ATV-Teams color mode",
       defaultValue: "dark",
       toolbar: {
         title: "Theme",

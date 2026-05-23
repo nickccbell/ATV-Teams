@@ -1,7 +1,7 @@
 {
   "name": "@paperclipai/plugin-exe-dev",
   "version": "0.1.0",
-  "description": "exe.dev sandbox provider plugin for Paperclip environments",
+  "description": "exe.dev sandbox provider plugin for ATV-Teams environments",
   "license": "MIT",
   "homepage": "https://github.com/paperclipai/paperclip",
   "bugs": {

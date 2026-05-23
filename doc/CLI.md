@@ -1,6 +1,6 @@
 # CLI Reference
 
-Paperclip CLI now supports both:
+ATV-Teams CLI now supports both:
 
 - instance setup/diagnostics (`onboard`, `doctor`, `configure`, `env`, `allowed-hostname`, `env-lab`)
 - control-plane client operations (issues, approvals, agents, activity, dashboard)
@@ -130,10 +130,10 @@ pnpm paperclipai agent get <agent-id>
 pnpm paperclipai agent local-cli <agent-id-or-shortname> --company-id <company-id>
 ```
 
-`agent local-cli` is the quickest way to run local Claude/Codex manually as a Paperclip agent:
+`agent local-cli` is the quickest way to run local Claude/Codex manually as a ATV-Teams agent:
 
 - creates a new long-lived agent API key
-- installs missing Paperclip skills into `~/.codex/skills` and `~/.claude/skills`
+- installs missing ATV-Teams skills into `~/.codex/skills` and `~/.claude/skills`
 - prints `export ...` lines for `PAPERCLIP_API_URL`, `PAPERCLIP_COMPANY_ID`, `PAPERCLIP_AGENT_ID`, and `PAPERCLIP_API_KEY`
 
 Example for shortname-based local setup:
@@ -156,10 +156,10 @@ pnpm paperclipai secrets migrate-inline-env --company-id <company-id> [--apply]
 
 Secret listing and declarations never print secret values. `create` accepts
 `--value-env` so shell history does not capture the value. `link` records
-provider-owned references without copying the secret value into Paperclip.
+provider-owned references without copying the secret value into ATV-Teams.
 For AWS-backed secrets, `secrets doctor` reports missing non-secret provider
 env and the expected AWS SDK runtime credential source; do not store AWS
-bootstrap credentials in Paperclip secrets.
+bootstrap credentials in ATV-Teams secrets.
 
 Per-company provider vaults (multiple vault instances per provider, default
 vault selection, coming-soon GCP/Vault) are configured from the board UI under
@@ -204,7 +204,7 @@ pnpm paperclipai heartbeat run --agent-id <agent-id> [--api-base http://localhos
 
 ## Local Storage Defaults
 
-Local Paperclip data lives under the selected instance root. `PAPERCLIP_HOME` chooses the home directory and `PAPERCLIP_INSTANCE_ID` chooses the instance.
+Local ATV-Teams data lives under the selected instance root. `PAPERCLIP_HOME` chooses the home directory and `PAPERCLIP_INSTANCE_ID` chooses the instance.
 
 ```text
 ~/.paperclip/                                     # PAPERCLIP_HOME

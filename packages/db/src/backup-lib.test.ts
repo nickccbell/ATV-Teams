@@ -422,7 +422,7 @@ describeEmbeddedPostgres("runDatabaseBackup", () => {
         await fs.promises.writeFile(
           backupFile,
           [
-            "-- Paperclip database backup",
+            "-- ATV-Teams database backup",
             "-- Created: 2026-04-06T00:00:00.000Z",
             "",
             "BEGIN;",

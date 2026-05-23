@@ -134,7 +134,7 @@ async function runGit(cwd: string, args: string[]) {
 async function createTempRepo() {
   const repoRoot = await fs.mkdtemp(path.join(os.tmpdir(), "paperclip-execution-workspace-"));
   await runGit(repoRoot, ["init"]);
-  await runGit(repoRoot, ["config", "user.name", "Paperclip Test"]);
+  await runGit(repoRoot, ["config", "user.name", "ATV-Teams Test"]);
   await runGit(repoRoot, ["config", "user.email", "test@paperclip.local"]);
   await fs.writeFile(path.join(repoRoot, "README.md"), "# Test repo\n", "utf8");
   await runGit(repoRoot, ["add", "README.md"]);
@@ -180,7 +180,7 @@ describeEmbeddedPostgres("executionWorkspaceService.getCloseReadiness", () => {
 
     await db.insert(companies).values({
       id: companyId,
-      name: "Paperclip",
+      name: "ATV-Teams",
       issuePrefix: "PAP",
       requireBoardApprovalForNewAgents: false,
     });
@@ -255,7 +255,7 @@ describeEmbeddedPostgres("executionWorkspaceService.getCloseReadiness", () => {
 
     await db.insert(companies).values({
       id: companyId,
-      name: "Paperclip",
+      name: "ATV-Teams",
       issuePrefix: "PAP",
       requireBoardApprovalForNewAgents: false,
     });
@@ -363,7 +363,7 @@ describeEmbeddedPostgres("executionWorkspaceService.getCloseReadiness", () => {
 
     await db.insert(companies).values({
       id: companyId,
-      name: "Paperclip",
+      name: "ATV-Teams",
       issuePrefix: "PAP",
       requireBoardApprovalForNewAgents: false,
     });

@@ -21,7 +21,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "../lib/utils";
 
 const PROFILE_SETTINGS_PATH = "/instance/settings/profile";
-const DOCS_URL = "https://docs.paperclip.ing/";
+const DOCS_URL = "https://github.com/shyamsridhar123/ATV-Teams";
 
 interface SidebarAccountMenuProps {
   deploymentMode?: DeploymentMode;
@@ -180,7 +180,7 @@ export function SidebarAccountMenu({
                 </div>
                 <p className="truncate text-sm text-muted-foreground">{secondaryLabel}</p>
                 {version ? (
-                  <p className="mt-1 text-xs text-muted-foreground">Paperclip v{version}</p>
+                  <p className="mt-1 text-xs text-muted-foreground">ATV-Teams v{version}</p>
                 ) : null}
               </div>
             </div>
@@ -209,7 +209,7 @@ export function SidebarAccountMenu({
               />
               <MenuAction
                 label="Documentation"
-                description="Open Paperclip docs in a new tab."
+                description="Open ATV-Teams docs in a new tab."
                 icon={BookOpen}
                 href={DOCS_URL}
                 external

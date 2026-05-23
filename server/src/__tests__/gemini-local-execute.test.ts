@@ -131,7 +131,7 @@ describe("gemini execute", () => {
       const promptFlagIndex = capture.argv.indexOf("--prompt");
       const promptArg = promptFlagIndex >= 0 ? capture.argv[promptFlagIndex + 1] : "";
       expect(promptArg).toContain("Follow the paperclip heartbeat.");
-      expect(promptArg).toContain("Paperclip runtime note:");
+      expect(promptArg).toContain("ATV-Teams runtime note:");
       expect(capture.paperclipEnvKeys).toEqual(
         expect.arrayContaining([
           "PAPERCLIP_AGENT_ID",
@@ -141,9 +141,9 @@ describe("gemini execute", () => {
           "PAPERCLIP_RUN_ID",
         ]),
       );
-      expect(invocationPrompt).toContain("Paperclip runtime note:");
+      expect(invocationPrompt).toContain("ATV-Teams runtime note:");
       expect(invocationPrompt).toContain("PAPERCLIP_API_URL");
-      expect(invocationPrompt).toContain("Paperclip API access note:");
+      expect(invocationPrompt).toContain("ATV-Teams API access note:");
       expect(invocationPrompt).toContain("run_shell_command");
       expect(result.question).toBeNull();
     } finally {
@@ -419,7 +419,7 @@ describe("gemini execute", () => {
       const promptArg = promptFlagIndex >= 0 ? capture.argv[promptFlagIndex + 1] : "";
       expect(capture.argv).toContain("--resume");
       expect(capture.argv).toContain("gemini-session-1");
-      expect(promptArg).toContain("## Paperclip Resume Delta");
+      expect(promptArg).toContain("## ATV-Teams Resume Delta");
       expect(promptArg).toContain("Do not switch to another issue until you have handled this wake.");
       expect(promptArg).toContain("Second comment");
       expect(promptArg).not.toContain("Follow the paperclip heartbeat.");

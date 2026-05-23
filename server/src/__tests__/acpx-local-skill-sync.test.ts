@@ -70,9 +70,9 @@ describe("acpx local skill sync", () => {
     expect(snapshot.mode).toBe("unsupported");
     expect(snapshot.desiredSkills).toContain(paperclipKey);
     expect(snapshot.entries.find((entry) => entry.key === paperclipKey)?.desired).toBe(true);
-    expect(snapshot.entries.find((entry) => entry.key === paperclipKey)?.detail).toContain("stored in Paperclip only");
+    expect(snapshot.entries.find((entry) => entry.key === paperclipKey)?.detail).toContain("stored in ATV-Teams only");
     expect(snapshot.warnings).toContain(
-      "Custom ACP commands do not expose a Paperclip skill integration contract yet; selected skills are tracked only.",
+      "Custom ACP commands do not expose a ATV-Teams skill integration contract yet; selected skills are tracked only.",
     );
   });
 });
