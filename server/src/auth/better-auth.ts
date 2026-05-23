@@ -44,6 +44,82 @@ export function buildBetterAuthAdvancedOptions(input: { disableSecureCookies: bo
   };
 }
 
+type GithubEmailEntry = { email: string; primary?: boolean; verified?: boolean };
+
+export type GithubSocialProviderConfig = {
+  clientId: string;
+  clientSecret: string;
+  scope: string[];
+  mapProfileToUser: (
+    profile: { email?: string | null; name?: string | null; avatar_url?: string | null },
+    tokens?: { accessToken?: string | null } | null,
+  ) => Promise<{ email?: string | null; name?: string | null; image?: string | null }>;
+};
+
+async function fetchGithubPrimaryEmail(accessToken: string, fetchImpl: typeof fetch): Promise<string | null> {
+  try {
+    const res = await fetchImpl("https://api.github.com/user/emails", {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        Accept: "application/vnd.github+json",
+        "User-Agent": "ATV-Teams",
+      },
+    });
+    if (!res.ok) return null;
+    const data = (await res.json()) as unknown;
+    if (!Array.isArray(data)) return null;
+    const entries = data.filter(
+      (e): e is GithubEmailEntry =>
+        !!e && typeof e === "object" && typeof (e as GithubEmailEntry).email === "string",
+    );
+    const primary = entries.find((e) => e.primary && e.verified);
+    if (primary) return primary.email;
+    const verified = entries.find((e) => e.verified);
+    if (verified) return verified.email;
+    return entries[0]?.email ?? null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Build the GitHub social provider entry for Better Auth's `socialProviders` map.
+ *
+ * Returns `null` when neither `GITHUB_CLIENT_ID` nor `ATV_TEAMS_GITHUB_CLIENT_ID` (and
+ * matching `*_SECRET`) are present, so deployments without GitHub OAuth credentials
+ * keep working with email + password sign-in only.
+ *
+ * GitHub returns `email: null` for users with private email addresses. The
+ * `mapProfileToUser` callback falls back to `GET /user/emails` using the OAuth
+ * access token and selects the primary verified address.
+ */
+export function buildGithubSocialProvider(
+  env: NodeJS.ProcessEnv = process.env,
+  fetchImpl: typeof fetch = fetch,
+): GithubSocialProviderConfig | null {
+  const clientId = env.GITHUB_CLIENT_ID ?? env.ATV_TEAMS_GITHUB_CLIENT_ID;
+  const clientSecret = env.GITHUB_CLIENT_SECRET ?? env.ATV_TEAMS_GITHUB_CLIENT_SECRET;
+  if (!clientId || !clientSecret) return null;
+
+  return {
+    clientId,
+    clientSecret,
+    scope: ["read:user", "user:email"],
+    mapProfileToUser: async (profile, tokens) => {
+      let email = typeof profile.email === "string" && profile.email.length > 0 ? profile.email : null;
+      const accessToken = tokens?.accessToken;
+      if (!email && accessToken) {
+        email = await fetchGithubPrimaryEmail(accessToken, fetchImpl);
+      }
+      return {
+        email,
+        name: profile.name ?? null,
+        image: profile.avatar_url ?? null,
+      };
+    },
+  };
+}
+
 function headersFromNodeHeaders(rawHeaders: IncomingHttpHeaders): Headers {
   const headers = new Headers();
   for (const [key, raw] of Object.entries(rawHeaders)) {
@@ -102,6 +178,7 @@ export function createBetterAuthInstance(db: Db, config: Config, trustedOrigins:
   const publicUrl = process.env.PAPERCLIP_PUBLIC_URL ?? baseUrl;
   const isHttpOnly = publicUrl ? publicUrl.startsWith("http://") : false;
 
+  const githubProvider = buildGithubSocialProvider();
   const authConfig = {
     baseURL: baseUrl,
     secret,
@@ -120,6 +197,7 @@ export function createBetterAuthInstance(db: Db, config: Config, trustedOrigins:
       requireEmailVerification: false,
       disableSignUp: config.authDisableSignUp,
     },
+    ...(githubProvider ? { socialProviders: { github: githubProvider } } : {}),
     advanced: buildBetterAuthAdvancedOptions({ disableSecureCookies: isHttpOnly }),
   };
 

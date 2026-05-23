@@ -6,7 +6,7 @@ import { queryKeys } from "../lib/queryKeys";
 import { getRememberedInvitePath } from "../lib/invite-memory";
 import { Button } from "@/components/ui/button";
 import { AsciiArtAnimation } from "@/components/AsciiArtAnimation";
-import { Sparkles } from "lucide-react";
+import { Github, Sparkles } from "lucide-react";
 
 type AuthMode = "sign_in" | "sign_up";
 
@@ -56,6 +56,15 @@ export function AuthPage() {
     },
     onError: (err) => {
       setError(err instanceof Error ? err.message : "Authentication failed");
+    },
+  });
+
+  const githubMutation = useMutation({
+    mutationFn: async () => {
+      await authApi.signInGitHub({ callbackURL: nextPath });
+    },
+    onError: (err) => {
+      setError(err instanceof Error ? err.message : "GitHub sign-in failed");
     },
   });
 
@@ -158,6 +167,26 @@ export function AuthPage() {
                   : "Create Account"}
             </Button>
           </form>
+
+          <div className="mt-4 flex items-center gap-3" aria-hidden="true">
+            <div className="h-px flex-1 bg-border" />
+            <span className="text-xs uppercase tracking-wider text-muted-foreground">or</span>
+            <div className="h-px flex-1 bg-border" />
+          </div>
+
+          <Button
+            type="button"
+            variant="outline"
+            disabled={githubMutation.isPending || mutation.isPending}
+            onClick={() => {
+              setError(null);
+              githubMutation.mutate();
+            }}
+            className="mt-4 w-full"
+          >
+            <Github className="h-4 w-4" />
+            {githubMutation.isPending ? "Redirecting…" : "Continue with GitHub"}
+          </Button>
 
           <div className="mt-5 text-sm text-muted-foreground">
             {mode === "sign_in" ? "Need an account?" : "Already have an account?"}{" "}
