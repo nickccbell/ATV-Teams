@@ -347,7 +347,7 @@ describe("server adapter registry", () => {
       "Authorization: Bearer $PAPERCLIP_API_KEY",
     );
     expect(patchedCtx.agent.adapterConfig.promptTemplate).toContain(
-      "X-ATV-Teams-Run-Id: $PAPERCLIP_RUN_ID",
+      "X-Paperclip-Run-Id: $PAPERCLIP_RUN_ID",
     );
     expect(patchedCtx.agent.adapterConfig.promptTemplate).toContain("Existing prompt");
   });

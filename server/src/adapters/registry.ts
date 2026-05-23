@@ -478,7 +478,7 @@ const hermesLocalAdapter: ServerAdapterModule = {
     const authGuardPrompt = [
       "ATV-Teams API safety rule:",
       "Use Authorization: Bearer $PAPERCLIP_API_KEY on every ATV-Teams API request.",
-      "Use X-ATV-Teams-Run-Id: $PAPERCLIP_RUN_ID on every ATV-Teams API request that writes or mutates data, including comments and issue updates.",
+      "Use X-Paperclip-Run-Id: $PAPERCLIP_RUN_ID on every ATV-Teams API request that writes or mutates data, including comments and issue updates.",
       "Never use a board, browser, or local-board session for ATV-Teams API writes.",
     ].join("\n");
 

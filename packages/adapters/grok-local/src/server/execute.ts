@@ -76,7 +76,7 @@ function renderApiAccessNote(env: Record<string, string>): string {
   return [
     "ATV-Teams API access note:",
     "Use shell commands with curl to make ATV-Teams API requests when needed.",
-    "Include X-ATV-Teams-Run-Id on mutating requests.",
+    "Include X-Paperclip-Run-Id on mutating requests.",
     "",
     "",
   ].join("\n");
