@@ -104,7 +104,7 @@ describe("resolveExecutionRunAdapterConfig", () => {
     });
   });
 
-  it("drops Paperclip runtime-owned env before resolving agent, project, and routine overlays", async () => {
+  it("drops ATV-Teams runtime-owned env before resolving agent, project, and routine overlays", async () => {
     const resolveAdapterConfigForRuntime = vi.fn(async (_companyId, config: Record<string, unknown>) => ({
       config: {
         ...config,

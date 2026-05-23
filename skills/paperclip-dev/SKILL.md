@@ -2,19 +2,19 @@
 name: paperclip-dev
 required: false
 description: >
-  Develop and operate a local Paperclip instance — start and stop servers,
+  Develop and operate a local ATV-Teams instance — start and stop servers,
   pull updates from master, run builds and tests, manage worktrees, back up
   databases, and diagnose problems. Use whenever you need to work on the
-  Paperclip codebase itself or keep a running instance healthy.
+  ATV-Teams codebase itself or keep a running instance healthy.
 ---
 
-# Paperclip Dev
+# ATV-Teams Dev
 
-This skill covers the day-to-day workflows for developing and operating a local Paperclip instance. It assumes you are working inside the Paperclip repo checkout with `origin` pointing to `git@github.com:paperclipai/paperclip.git`.
+This skill covers the day-to-day workflows for developing and operating a local ATV-Teams instance. It assumes you are working inside the ATV-Teams repo checkout with `origin` pointing to `git@github.com:paperclipai/paperclip.git`.
 
 > **OPEN SOURCE HYGIENE:** This repository is public-facing. Treat anything you push to `origin` as publishable. Never commit or push secrets, API keys, tokens, private logs, PII, customer data, or machine-local configuration that should stay private. Keep git history tidy as well: avoid pushing throwaway branches, noisy checkpoint commits, or speculative work that does not need to be shared upstream.
 
-> **MANDATORY:** Before running any CLI command, building, testing, or managing worktrees, you MUST read `doc/DEVELOPING.md` in the Paperclip repo. It is the canonical reference for all `paperclipai` CLI commands, their options, build/test workflows, database operations, worktree management, and diagnostics. Do NOT guess at flags or options — read the doc first.
+> **MANDATORY:** Before running any CLI command, building, testing, or managing worktrees, you MUST read `doc/DEVELOPING.md` in the ATV-Teams repo. It is the canonical reference for all `paperclipai` CLI commands, their options, build/test workflows, database operations, worktree management, and diagnostics. Do NOT guess at flags or options — read the doc first.
 
 ## Quick Command Reference
 
@@ -47,15 +47,15 @@ If schema changes landed, also run `pnpm db:generate && pnpm db:migrate`.
 
 ## Worktrees
 
-Paperclip worktrees combine git worktrees with isolated Paperclip instances — each gets its own database, server port, and environment seeded from the primary instance.
+ATV-Teams worktrees combine git worktrees with isolated ATV-Teams instances — each gets its own database, server port, and environment seeded from the primary instance.
 
 > **MANDATORY:** Before creating or managing worktrees, you MUST read the "Worktree-local Instances" and "Worktree CLI Reference" sections in `doc/DEVELOPING.md`. That is the canonical reference for all worktree commands, their options, seed modes, and environment variables.
 
 ### When to Use Worktrees
 
-- Starting a feature branch that needs its own Paperclip environment
+- Starting a feature branch that needs its own ATV-Teams environment
 - Running parallel agent work without cross-contaminating the primary instance
-- Testing Paperclip changes in isolation before merging
+- Testing ATV-Teams changes in isolation before merging
 
 ### Command Overview
 
@@ -64,7 +64,7 @@ The CLI has two tiers (see `doc/DEVELOPING.md` for full option tables):
 | Command | Purpose |
 |---------|---------|
 | `worktree:make <name>` | Create worktree + isolated instance in one step |
-| `worktree:list` | List worktrees and their Paperclip status |
+| `worktree:list` | List worktrees and their ATV-Teams status |
 | `worktree:merge-history` | Preview/import issue history between worktrees |
 | `worktree:cleanup <name>` | Remove worktree, branch, and instance data |
 | `worktree init` | Bootstrap instance inside existing worktree |
@@ -82,7 +82,7 @@ npx paperclipai worktree:make my-feature --start-point origin/main
 cd <worktree-path>
 eval "$(npx paperclipai worktree env)"
 
-# 3. Start the isolated Paperclip server
+# 3. Start the isolated ATV-Teams server
 npx paperclipai run
 
 # 4. Do your work

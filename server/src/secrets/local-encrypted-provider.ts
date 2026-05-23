@@ -267,7 +267,7 @@ export const localEncryptedProvider: SecretProviderModule = {
     return decryptValue(masterKey, asLocalEncryptedMaterial(input.material));
   },
   async deleteOrArchive() {
-    // Secret metadata deletion is handled in Paperclip DB; the local key is shared and must remain.
+    // Secret metadata deletion is handled in ATV-Teams DB; the local key is shared and must remain.
   },
   async healthCheck() {
     return inspectLocalEncryptedHealth();

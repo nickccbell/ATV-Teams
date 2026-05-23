@@ -1,12 +1,12 @@
 # `@paperclipai/plugin-daytona`
 
-Published Daytona sandbox provider plugin for Paperclip.
+Published Daytona sandbox provider plugin for ATV-Teams.
 
-This package lives in the Paperclip monorepo, but it is intentionally excluded from the root `pnpm` workspace and shaped to publish and install like a standalone npm package. That lets operators install it from the Plugins page by package name without introducing root lockfile churn for Daytona's SDK dependencies.
+This package lives in the ATV-Teams monorepo, but it is intentionally excluded from the root `pnpm` workspace and shaped to publish and install like a standalone npm package. That lets operators install it from the Plugins page by package name without introducing root lockfile churn for Daytona's SDK dependencies.
 
 ## Install
 
-From a Paperclip instance, install:
+From a ATV-Teams instance, install:
 
 ```text
 @paperclipai/plugin-daytona
@@ -19,7 +19,7 @@ The host plugin installer runs `npm install` into the managed plugin directory, 
 Configure Daytona from `Company Settings -> Environments`, not from the plugin's instance settings page.
 
 - Put the Daytona API key on the sandbox environment itself.
-- When you save an environment, Paperclip stores pasted API keys as company secrets.
+- When you save an environment, ATV-Teams stores pasted API keys as company secrets.
 - `DAYTONA_API_KEY` remains an optional host-level fallback when an environment omits the key.
 - Optional `apiUrl` and `target` settings map directly to the Daytona SDK/client configuration. If `apiUrl` is omitted, the Daytona SDK uses its default endpoint.
 

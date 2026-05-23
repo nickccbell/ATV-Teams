@@ -58,7 +58,7 @@ describe("resolveEnvironmentExecutionTarget", () => {
     });
   });
 
-  it("keeps sandbox targets on bridge mode even when lease metadata includes a Paperclip API URL", async () => {
+  it("keeps sandbox targets on bridge mode even when lease metadata includes a ATV-Teams API URL", async () => {
     mockResolveEnvironmentDriverConfigForRuntime.mockResolvedValue({
       driver: "sandbox",
       config: {

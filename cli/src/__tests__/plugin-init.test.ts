@@ -105,7 +105,7 @@ describe("plugin init", () => {
         "--description",
         "Demo description",
         "--author",
-        "Paperclip",
+        "ATV-Teams",
         "--sdk-path",
         "/repo/packages/plugins/sdk",
       ],
@@ -120,7 +120,7 @@ describe("plugin init", () => {
       category: "workspace",
       displayName: "Demo Plugin",
       description: "Demo description",
-      author: "Paperclip",
+      author: "ATV-Teams",
       sdkPath: "/repo/packages/plugins/sdk",
     });
   });

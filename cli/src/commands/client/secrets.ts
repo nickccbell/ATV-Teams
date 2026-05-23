@@ -393,7 +393,7 @@ export function registerSecretCommands(program: Command): void {
   addCommonClientOptions(
     secrets
       .command("create")
-      .description("Create a Paperclip-managed secret")
+      .description("Create a ATV-Teams-managed secret")
       .requiredOption("-C, --company-id <id>", "Company ID")
       .requiredOption("--name <name>", "Secret display name")
       .option("--key <key>", "Portable secret key")
@@ -421,7 +421,7 @@ export function registerSecretCommands(program: Command): void {
   addCommonClientOptions(
     secrets
       .command("link")
-      .description("Link an external provider-owned secret without storing its value in Paperclip")
+      .description("Link an external provider-owned secret without storing its value in ATV-Teams")
       .requiredOption("-C, --company-id <id>", "Company ID")
       .requiredOption("--name <name>", "Secret display name")
       .requiredOption("--provider <provider>", "Secret provider id")
@@ -451,7 +451,7 @@ export function registerSecretCommands(program: Command): void {
   addCommonClientOptions(
     secrets
       .command("doctor")
-      .description("Run secret provider health checks through the Paperclip API")
+      .description("Run secret provider health checks through the ATV-Teams API")
       .requiredOption("-C, --company-id <id>", "Company ID")
       .action(async (opts: SecretDoctorOptions) => {
         try {

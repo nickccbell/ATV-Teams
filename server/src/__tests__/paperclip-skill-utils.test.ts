@@ -53,7 +53,7 @@ describe("paperclip skill utils", () => {
     // Required skill (no frontmatter flag)
     const requiredDir = path.join(root, "skills", "paperclip");
     await fs.mkdir(requiredDir, { recursive: true });
-    await fs.writeFile(path.join(requiredDir, "SKILL.md"), "---\nname: paperclip\n---\n\n# Paperclip\n");
+    await fs.writeFile(path.join(requiredDir, "SKILL.md"), "---\nname: paperclip\n---\n\n# ATV-Teams\n");
 
     // Optional skill (required: false)
     const optionalDir = path.join(root, "skills", "paperclip-dev");

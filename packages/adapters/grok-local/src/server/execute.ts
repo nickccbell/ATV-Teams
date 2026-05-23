@@ -63,7 +63,7 @@ function renderPaperclipEnvNote(env: Record<string, string>): string {
     .sort();
   if (paperclipKeys.length === 0) return "";
   return [
-    "Paperclip runtime note:",
+    "ATV-Teams runtime note:",
     `The following PAPERCLIP_* environment variables are available in this run: ${paperclipKeys.join(", ")}`,
     "Do not assume these variables are missing without checking your shell environment.",
     "",
@@ -74,9 +74,9 @@ function renderPaperclipEnvNote(env: Record<string, string>): string {
 function renderApiAccessNote(env: Record<string, string>): string {
   if (!hasNonEmptyEnvValue(env, "PAPERCLIP_API_URL") || !hasNonEmptyEnvValue(env, "PAPERCLIP_API_KEY")) return "";
   return [
-    "Paperclip API access note:",
-    "Use shell commands with curl to make Paperclip API requests when needed.",
-    "Include X-Paperclip-Run-Id on mutating requests.",
+    "ATV-Teams API access note:",
+    "Use shell commands with curl to make ATV-Teams API requests when needed.",
+    "Include X-ATV-Teams-Run-Id on mutating requests.",
     "",
     "",
   ].join("\n");
@@ -393,7 +393,7 @@ export async function execute(ctx: AdapterExecutionContext): Promise<AdapterExec
         notes.push(`Applied fallback instructions via --rules @${stagedAssets.rulesFilePath}.`);
       }
       if (stagedAssets.stagedSkillsCount > 0) {
-        notes.push(`Staged ${stagedAssets.stagedSkillsCount} Paperclip skill(s) into .claude/skills for native Grok discovery.`);
+        notes.push(`Staged ${stagedAssets.stagedSkillsCount} ATV-Teams skill(s) into .claude/skills for native Grok discovery.`);
       }
       return notes;
     })();

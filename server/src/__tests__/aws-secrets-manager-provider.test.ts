@@ -25,7 +25,7 @@ describe("awsSecretsManagerProvider", () => {
     }
   });
 
-  it("creates Paperclip-managed AWS secrets without persisting plaintext in provider material", async () => {
+  it("creates ATV-Teams-managed AWS secrets without persisting plaintext in provider material", async () => {
     const calls: Array<{ op: string; input: Record<string, unknown> }> = [];
     const provider = createAwsSecretsManagerProvider({
       config: {
@@ -350,7 +350,7 @@ describe("awsSecretsManagerProvider", () => {
     expect(prepared.valueSha256).toBeTruthy();
   });
 
-  it("rejects linked external references under the Paperclip-managed namespace", async () => {
+  it("rejects linked external references under the ATV-Teams-managed namespace", async () => {
     const provider = createAwsSecretsManagerProvider({
       config: {
         region: "us-east-1",
@@ -370,7 +370,7 @@ describe("awsSecretsManagerProvider", () => {
           "arn:aws:secretsmanager:us-east-1:123456789012:secret:paperclip/prod-use1/company-2/openai-api-key",
         providerVersionRef: "linked-version-7",
       }),
-    ).rejects.toThrow(/Paperclip-managed namespace/i);
+    ).rejects.toThrow(/ATV-Teams-managed namespace/i);
   });
 
   it("lists remote AWS secrets with metadata only and never resolves plaintext", async () => {
@@ -553,7 +553,7 @@ describe("awsSecretsManagerProvider", () => {
 
   it("redacts AWS provider exception text when remote listing fails", async () => {
     const rawProviderMessage =
-      "AccessDeniedException: User: arn:aws:sts::123456789012:assumed-role/prod/Paperclip is not authorized to perform secretsmanager:ListSecrets on arn:aws:secretsmanager:us-east-1:123456789012:secret:prod/openai";
+      "AccessDeniedException: User: arn:aws:sts::123456789012:assumed-role/prod/ATV-Teams is not authorized to perform secretsmanager:ListSecrets on arn:aws:secretsmanager:us-east-1:123456789012:secret:prod/openai";
     const provider = createAwsSecretsManagerProvider({
       config: {
         region: "us-east-1",
@@ -754,7 +754,7 @@ describe("awsSecretsManagerProvider", () => {
     ).rejects.toThrow(/PAPERCLIP_SECRETS_AWS_REGION|AWS_REGION/i);
   });
 
-  it("deletes only Paperclip-managed AWS secrets", async () => {
+  it("deletes only ATV-Teams-managed AWS secrets", async () => {
     const calls: Array<{ op: string; input: Record<string, unknown> }> = [];
     const provider = createAwsSecretsManagerProvider({
       config: {
@@ -849,7 +849,7 @@ describe("awsSecretsManagerProvider", () => {
     ]);
   });
 
-  it("archives pending Paperclip-managed AWS versions without deleting the secret", async () => {
+  it("archives pending ATV-Teams-managed AWS versions without deleting the secret", async () => {
     const calls: Array<{ op: string; input: Record<string, unknown> }> = [];
     const provider = createAwsSecretsManagerProvider({
       config: {

@@ -79,7 +79,7 @@ describeEmbeddedPostgres("heartbeat bounded retry scheduling", () => {
     const agentName = input.agentName ?? (adapterType === "claude_local" ? "ClaudeCoder" : "CodexCoder");
     await db.insert(companies).values({
       id: input.companyId,
-      name: "Paperclip",
+      name: "ATV-Teams",
       issuePrefix: `T${input.companyId.replace(/-/g, "").slice(0, 6).toUpperCase()}`,
       requireBoardApprovalForNewAgents: false,
     });
@@ -149,7 +149,7 @@ describeEmbeddedPostgres("heartbeat bounded retry scheduling", () => {
 
     await db.insert(companies).values({
       id: companyId,
-      name: "Paperclip",
+      name: "ATV-Teams",
       issuePrefix,
       requireBoardApprovalForNewAgents: false,
     });
@@ -224,7 +224,7 @@ describeEmbeddedPostgres("heartbeat bounded retry scheduling", () => {
 
     await db.insert(companies).values({
       id: companyId,
-      name: "Paperclip",
+      name: "ATV-Teams",
       issuePrefix: `T${companyId.replace(/-/g, "").slice(0, 6).toUpperCase()}`,
       requireBoardApprovalForNewAgents: false,
     });
@@ -731,7 +731,7 @@ describeEmbeddedPostgres("heartbeat bounded retry scheduling", () => {
 
     await db.insert(companies).values({
       id: companyId,
-      name: "Paperclip",
+      name: "ATV-Teams",
       issuePrefix: `T${companyId.replace(/-/g, "").slice(0, 6).toUpperCase()}`,
       requireBoardApprovalForNewAgents: false,
     });
@@ -884,7 +884,7 @@ describeEmbeddedPostgres("heartbeat bounded retry scheduling", () => {
 
     await db.insert(companies).values({
       id: companyId,
-      name: "Paperclip",
+      name: "ATV-Teams",
       issuePrefix: `T${companyId.replace(/-/g, "").slice(0, 6).toUpperCase()}`,
       requireBoardApprovalForNewAgents: false,
     });
@@ -1001,7 +1001,7 @@ describeEmbeddedPostgres("heartbeat bounded retry scheduling", () => {
 
     await db.insert(companies).values({
       id: companyId,
-      name: "Paperclip",
+      name: "ATV-Teams",
       issuePrefix: `T${companyId.replace(/-/g, "").slice(0, 6).toUpperCase()}`,
       requireBoardApprovalForNewAgents: false,
     });
@@ -1099,7 +1099,7 @@ describeEmbeddedPostgres("heartbeat bounded retry scheduling", () => {
 
     await db.insert(companies).values({
       id: companyId,
-      name: "Paperclip",
+      name: "ATV-Teams",
       issuePrefix: `T${companyId.replace(/-/g, "").slice(0, 6).toUpperCase()}`,
       requireBoardApprovalForNewAgents: false,
     });

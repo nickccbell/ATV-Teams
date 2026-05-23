@@ -244,7 +244,7 @@ describe("ssh env-lab fixture", () => {
     await mkdir(localRepo, { recursive: true });
     await git(localRepo, ["init"]);
     await git(localRepo, ["checkout", "-b", "main"]);
-    await git(localRepo, ["config", "user.name", "Paperclip Test"]);
+    await git(localRepo, ["config", "user.name", "ATV-Teams Test"]);
     await git(localRepo, ["config", "user.email", "test@paperclip.dev"]);
     await writeFile(path.join(localRepo, "tracked.txt"), "base\n", "utf8");
     await writeFile(path.join(localRepo, "._tracked.txt"), "should stay local only\n", "utf8");
@@ -278,7 +278,7 @@ describe("ssh env-lab fixture", () => {
 
     await runSshCommand(
       config,
-      `cd ${JSON.stringify(started.workspaceDir)} && git config user.name "Paperclip SSH" && git config user.email "ssh@paperclip.dev" && git add tracked.txt untracked.txt && git commit -m "remote update" >/dev/null && printf "remote dirty\\n" > tracked.txt && printf "remote extra\\n" > remote-only.txt`,
+      `cd ${JSON.stringify(started.workspaceDir)} && git config user.name "ATV-Teams SSH" && git config user.email "ssh@paperclip.dev" && git add tracked.txt untracked.txt && git commit -m "remote update" >/dev/null && printf "remote dirty\\n" > tracked.txt && printf "remote extra\\n" > remote-only.txt`,
       { timeoutMs: 30_000, maxBuffer: 256 * 1024 },
     );
 
@@ -304,7 +304,7 @@ describe("ssh env-lab fixture", () => {
     await mkdir(localRepo, { recursive: true });
     await git(localRepo, ["init"]);
     await git(localRepo, ["checkout", "-b", "main"]);
-    await git(localRepo, ["config", "user.name", "Paperclip Test"]);
+    await git(localRepo, ["config", "user.name", "ATV-Teams Test"]);
     await git(localRepo, ["config", "user.email", "test@paperclip.dev"]);
     await writeFile(path.join(localRepo, "tracked.txt"), "base\n", "utf8");
     await git(localRepo, ["add", "tracked.txt"]);
@@ -362,7 +362,7 @@ describe("ssh env-lab fixture", () => {
     await mkdir(localRepo, { recursive: true });
     await git(localRepo, ["init"]);
     await git(localRepo, ["checkout", "-b", "main"]);
-    await git(localRepo, ["config", "user.name", "Paperclip Test"]);
+    await git(localRepo, ["config", "user.name", "ATV-Teams Test"]);
     await git(localRepo, ["config", "user.email", "test@paperclip.dev"]);
     await writeFile(path.join(localRepo, "tracked.txt"), "base\n", "utf8");
     await git(localRepo, ["add", "tracked.txt"]);
@@ -418,7 +418,7 @@ describe("ssh env-lab fixture", () => {
     await mkdir(localRepo, { recursive: true });
     await git(localRepo, ["init"]);
     await git(localRepo, ["checkout", "-b", "main"]);
-    await git(localRepo, ["config", "user.name", "Paperclip Test"]);
+    await git(localRepo, ["config", "user.name", "ATV-Teams Test"]);
     await git(localRepo, ["config", "user.email", "test@paperclip.dev"]);
     await writeFile(path.join(localRepo, "tracked.txt"), "base\n", "utf8");
     await git(localRepo, ["add", "tracked.txt"]);
@@ -441,7 +441,7 @@ describe("ssh env-lab fixture", () => {
 
     await runSshCommand(
       config,
-      `cd ${JSON.stringify(prepared.workspaceRemoteDir)} && git config user.name "Paperclip SSH" && git config user.email "ssh@paperclip.dev" && printf "committed\\n" > tracked.txt && git add tracked.txt && git commit -m "remote update" >/dev/null && printf "dirty remote\\n" > tracked.txt`,
+      `cd ${JSON.stringify(prepared.workspaceRemoteDir)} && git config user.name "ATV-Teams SSH" && git config user.email "ssh@paperclip.dev" && printf "committed\\n" > tracked.txt && git add tracked.txt && git commit -m "remote update" >/dev/null && printf "dirty remote\\n" > tracked.txt`,
       { timeoutMs: 30_000, maxBuffer: 256 * 1024 },
     );
 
@@ -460,7 +460,7 @@ describe("ssh env-lab fixture", () => {
     await mkdir(localRepo, { recursive: true });
     await git(localRepo, ["init"]);
     await git(localRepo, ["checkout", "-b", "main"]);
-    await git(localRepo, ["config", "user.name", "Paperclip Test"]);
+    await git(localRepo, ["config", "user.name", "ATV-Teams Test"]);
     await git(localRepo, ["config", "user.email", "test@paperclip.dev"]);
     await writeFile(path.join(localRepo, "tracked.txt"), "base\n", "utf8");
     await git(localRepo, ["add", "tracked.txt"]);
@@ -489,12 +489,12 @@ describe("ssh env-lab fixture", () => {
 
     await runSshCommand(
       config,
-      `cd ${JSON.stringify(preparedA.workspaceRemoteDir)} && git config user.name "Paperclip SSH" && git config user.email "ssh@paperclip.dev" && printf "from run a\\n" > run-a.txt && git add run-a.txt && git commit -m "remote update a" >/dev/null`,
+      `cd ${JSON.stringify(preparedA.workspaceRemoteDir)} && git config user.name "ATV-Teams SSH" && git config user.email "ssh@paperclip.dev" && printf "from run a\\n" > run-a.txt && git add run-a.txt && git commit -m "remote update a" >/dev/null`,
       { timeoutMs: 30_000, maxBuffer: 256 * 1024 },
     );
     await runSshCommand(
       config,
-      `cd ${JSON.stringify(preparedB.workspaceRemoteDir)} && git config user.name "Paperclip SSH" && git config user.email "ssh@paperclip.dev" && printf "from run b\\n" > run-b.txt && git add run-b.txt && git commit -m "remote update b" >/dev/null`,
+      `cd ${JSON.stringify(preparedB.workspaceRemoteDir)} && git config user.name "ATV-Teams SSH" && git config user.email "ssh@paperclip.dev" && printf "from run b\\n" > run-b.txt && git add run-b.txt && git commit -m "remote update b" >/dev/null`,
       { timeoutMs: 30_000, maxBuffer: 256 * 1024 },
     );
 
@@ -505,7 +505,7 @@ describe("ssh env-lab fixture", () => {
 
     await expect(readFile(path.join(localRepo, "run-a.txt"), "utf8")).resolves.toBe("from run a\n");
     await expect(readFile(path.join(localRepo, "run-b.txt"), "utf8")).resolves.toBe("from run b\n");
-    expect(await git(localRepo, ["log", "-1", "--pretty=%s"])).toContain("Paperclip SSH sync merge");
+    expect(await git(localRepo, ["log", "-1", "--pretty=%s"])).toContain("ATV-Teams SSH sync merge");
 
     const recentSubjects = await git(localRepo, ["log", "--pretty=%s", "-3"]);
     expect(recentSubjects).toContain("remote update a");

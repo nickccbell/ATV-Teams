@@ -678,7 +678,7 @@ describe("claude execute", () => {
     })).toBe(false);
   });
 
-  it("reuses a stable Paperclip-managed Claude prompt bundle across equivalent runs", async () => {
+  it("reuses a stable ATV-Teams-managed Claude prompt bundle across equivalent runs", async () => {
     const root = await fs.mkdtemp(path.join(os.tmpdir(), "paperclip-claude-execute-bundle-"));
     const workspace = path.join(root, "workspace");
     const commandPath = path.join(root, "claude");
@@ -823,7 +823,7 @@ describe("claude execute", () => {
       expect(capture1.skillEntries).toContain("paperclip");
       expect(capture2.argv).toContain("--resume");
       expect(capture2.argv).toContain("claude-session-1");
-      expect(capture2.prompt).toContain("## Paperclip Resume Delta");
+      expect(capture2.prompt).toContain("## ATV-Teams Resume Delta");
       expect(capture2.prompt).not.toContain("Follow the paperclip heartbeat.");
     } finally {
       if (previousHome === undefined) delete process.env.HOME;

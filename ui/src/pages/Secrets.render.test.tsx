@@ -157,7 +157,7 @@ function makeDiscoveryPreview(
           region: "us-east-1",
           namespace: "prod-use1",
           secretNamePrefix: "paperclip",
-          kmsKeyId: "alias/paperclip-secrets",
+          kmsKeyId: "alias/atv-secrets",
           ownerTag: "platform",
           environmentTag: "production",
         },
@@ -174,7 +174,7 @@ function makeDiscoveryPreview(
           secretNamePrefix: "paperclip",
           environmentTag: "production",
           ownerTag: "platform",
-          kmsKeyId: "alias/paperclip-secrets",
+          kmsKeyId: "alias/atv-secrets",
           hasKmsKey: true,
           sampleCount: 2,
           paperclipManagedSampleCount: 0,
@@ -300,7 +300,7 @@ describe("Secrets page layout", () => {
     });
   });
 
-  it("warns that removing a provider vault only removes Paperclip config", async () => {
+  it("warns that removing a provider vault only removes ATV-Teams config", async () => {
     mockSecretsApi.removeProviderConfig.mockResolvedValueOnce(providerConfigs[1]);
     const root = createRoot(container);
     const queryClient = new QueryClient({
@@ -338,12 +338,12 @@ describe("Secrets page layout", () => {
     await flushReact();
 
     expect(document.body.textContent).toContain("Remove provider vault");
-    expect(document.body.textContent).toContain("from Paperclip only");
+    expect(document.body.textContent).toContain("from ATV-Teams only");
     expect(document.body.textContent).toContain("does not delete");
     expect(document.body.textContent).toContain("AWS Secrets Manager");
 
     const confirmButton = [...document.querySelectorAll("button")].find(
-      (button) => button.textContent?.includes("Remove from Paperclip"),
+      (button) => button.textContent?.includes("Remove from ATV-Teams"),
     ) as HTMLButtonElement | undefined;
     await act(async () => {
       confirmButton?.click();
@@ -553,7 +553,7 @@ describe("Secrets page layout", () => {
     expect((document.getElementById("vault-name") as HTMLInputElement).value).toBe("AWS production");
     expect((document.getElementById("provider-vault-namespace") as HTMLInputElement).value).toBe("prod-use1");
     expect((document.getElementById("provider-vault-secret-name-prefix") as HTMLInputElement).value).toBe("paperclip");
-    expect((document.getElementById("provider-vault-kms-key-id") as HTMLInputElement).value).toBe("alias/paperclip-secrets");
+    expect((document.getElementById("provider-vault-kms-key-id") as HTMLInputElement).value).toBe("alias/atv-secrets");
     expect((document.getElementById("provider-vault-owner-tag") as HTMLInputElement).value).toBe("platform");
     expect((document.getElementById("provider-vault-environment-tag") as HTMLInputElement).value).toBe("production");
     expect(mockSecretsApi.createProviderConfig).not.toHaveBeenCalled();

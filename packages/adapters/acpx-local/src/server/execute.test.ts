@@ -376,7 +376,7 @@ describe("acpx_local runtime skill isolation", () => {
     expect(envFiles.filter((contents) => contents.includes("PAPERCLIP_API_KEY='second-key'"))).toHaveLength(1);
   });
 
-  it("passes Paperclip env through the ACP agent wrapper instead of process.env", async () => {
+  it("passes ATV-Teams env through the ACP agent wrapper instead of process.env", async () => {
     let observedApiKeyDuringStream: string | undefined;
     const execute = createAcpxLocalExecutor({
       createRuntime: () => ({

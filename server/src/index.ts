@@ -948,7 +948,7 @@ function isMainModule(metaUrl: string): boolean {
 
 if (isMainModule(import.meta.url)) {
   void startServer().catch((err) => {
-    logger.error({ err }, "Paperclip server failed to start");
+    logger.error({ err }, "ATV-Teams server failed to start");
     process.exit(1);
   });
 }

@@ -9,19 +9,41 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="ATV-Teams" />
     <title>ATV-Teams</title>
-    <!-- PAPERCLIP_RUNTIME_BRANDING_START -->
-    <!-- PAPERCLIP_RUNTIME_BRANDING_END -->
-    <!-- PAPERCLIP_FAVICON_START -->
+    <!-- ATV_TEAMS_RUNTIME_BRANDING_START -->
+    <!-- ATV_TEAMS_RUNTIME_BRANDING_END -->
+    <!-- ATV_TEAMS_FAVICON_START -->
     <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <!-- PAPERCLIP_FAVICON_END -->
+    <!-- ATV_TEAMS_FAVICON_END -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <script>
       (() => {
-        const key = "paperclip.theme";
+        // One-shot migration: rename legacy paperclip.* and paperclip:* localStorage keys to atv-teams.*/atv-teams:*
+        try {
+          const remaps = [
+            { from: "paperclip.", to: "atv-teams." },
+            { from: "paperclip:", to: "atv-teams:" },
+          ];
+          const allKeys = [];
+          for (let i = 0; i < window.localStorage.length; i += 1) {
+            const k = window.localStorage.key(i);
+            if (k) allKeys.push(k);
+          }
+          for (const legacyKey of allKeys) {
+            const remap = remaps.find((r) => legacyKey.startsWith(r.from));
+            if (!remap) continue;
+            const newKey = remap.to + legacyKey.slice(remap.from.length);
+            if (window.localStorage.getItem(newKey) === null) {
+              const value = window.localStorage.getItem(legacyKey);
+              if (value !== null) window.localStorage.setItem(newKey, value);
+            }
+            window.localStorage.removeItem(legacyKey);
+          }
+        } catch {}
+        const key = "atv-teams.theme";
         const darkThemeColor = "#18181b";
         const lightThemeColor = "#ffffff";
         try {

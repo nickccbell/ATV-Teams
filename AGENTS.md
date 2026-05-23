@@ -4,7 +4,7 @@ Guidance for human and AI contributors working in this repository.
 
 ## 1. Purpose
 
-ATV-Teams (built on the upstream Paperclip control plane) is a control plane for AI-agent companies.
+ATV-Teams is a control plane for AI-agent companies.
 The current implementation target is V1 and is defined in `doc/SPEC-implementation.md`.
 
 ## 2. Read This First
@@ -82,7 +82,7 @@ If you change schema/API behavior, update all impacted layers:
 Prefer additive updates. Keep `doc/SPEC.md` and `doc/SPEC-implementation.md` aligned.
 
 5. Keep repo plan docs dated and centralized.
-When you are creating a plan file in the repository itself, new plan documents belong in `doc/plans/` and should use `YYYY-MM-DD-slug.md` filenames. This does not replace Paperclip issue planning: if a Paperclip issue asks for a plan, update the issue `plan` document per the `paperclip` skill instead of creating a repo markdown file.
+When you are creating a plan file in the repository itself, new plan documents belong in `doc/plans/` and should use `YYYY-MM-DD-slug.md` filenames. This does not replace ATV-Teams issue planning: if a ATV-Teams issue asks for a plan, update the issue `plan` document per the `paperclip` skill instead of creating a repo markdown file.
 
 ## 6. Database Change Workflow
 
@@ -178,7 +178,7 @@ A change is done when all are true:
 
 ## 11. Fork-Specific: shyamsridhar123/ATV-Teams
 
-This is the `shyamsridhar123/ATV-Teams` rebrand of the upstream Paperclip control plane (`paperclipai/paperclip`). The product is presented to end users as **ATV-Teams** while internal package names (`@paperclipai/*`), the `paperclipai` CLI binary, and the `~/.paperclip/` config directory are intentionally preserved for back-compat with the upstream install path and the existing lockfile.
+This is the `shyamsridhar123/ATV-Teams` repository. The product is presented to end users as **ATV-Teams** while internal package names (`@paperclipai/*`), the `paperclipai` CLI binary, and the `~/.paperclip/` config directory are intentionally preserved for back-compat with the existing install path and the existing lockfile.
 
 ### Brand vs. internals
 

@@ -204,7 +204,7 @@ function buildCodexTransientHandoffNote(input: {
   continuationSummaryBody: string | null;
 }): string {
   return [
-    "Paperclip session handoff:",
+    "ATV-Teams session handoff:",
     input.previousSessionId ? `- Previous session: ${input.previousSessionId}` : "",
     "- Rotation reason: repeated Codex transient remote-compaction failures",
     `- Fallback mode: ${input.fallbackMode}`,
@@ -573,7 +573,7 @@ export async function execute(ctx: AdapterExecutionContext): Promise<AdapterExec
     }
   }
   const repoAgentsNote =
-    "Codex exec automatically applies repo-scoped AGENTS.md instructions from the current workspace; Paperclip does not currently suppress that discovery.";
+    "Codex exec automatically applies repo-scoped AGENTS.md instructions from the current workspace; ATV-Teams does not currently suppress that discovery.";
   const bootstrapPromptTemplate = asString(config.bootstrapPromptTemplate, "");
   const templateData = {
     agentId: agent.id,

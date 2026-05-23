@@ -134,7 +134,7 @@ export function OpenClawGatewayConfigFields({
 
       {!isCreate && (
         <>
-          <Field label="Paperclip API URL override">
+          <Field label="ATV-Teams API URL override">
             <DraftInput
               value={
                 eff(
@@ -156,7 +156,7 @@ export function OpenClawGatewayConfigFields({
               onCommit={(v) => mark("adapterConfig", "claimedApiKeyPath", v || undefined)}
               immediate
               className={inputClass}
-              placeholder="~/.openclaw/workspace/paperclip-claimed-api-key.json"
+              placeholder="~/.openclaw/workspace/atv-claimed-api-key.json"
             />
           </Field>
 
@@ -236,7 +236,7 @@ export function OpenClawGatewayConfigFields({
 
           <Field label="Device auth">
             <div className="text-xs text-muted-foreground leading-relaxed">
-              Always enabled for gateway agents. Paperclip persists a device key during onboarding so pairing approvals
+              Always enabled for gateway agents. ATV-Teams persists a device key during onboarding so pairing approvals
               remain stable across runs.
             </div>
           </Field>

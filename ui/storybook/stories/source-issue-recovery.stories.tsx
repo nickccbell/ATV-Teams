@@ -327,7 +327,7 @@ function InboxRowPanel() {
 }
 
 const meta = {
-  title: "Paperclip/Source Issue Recovery",
+  title: "ATV-Teams/Source Issue Recovery",
   component: AllStatesPanel,
   parameters: { layout: "fullscreen" },
 } satisfies Meta<typeof AllStatesPanel>;

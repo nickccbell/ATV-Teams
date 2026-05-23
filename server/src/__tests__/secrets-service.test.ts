@@ -1207,7 +1207,7 @@ describeEmbeddedPostgres("secretService", () => {
       config: { region: "us-east-1", namespace: "prod-use1" },
     });
     const rawProviderMessage =
-      "AccessDeniedException: User: arn:aws:sts::123456789012:assumed-role/prod/Paperclip is not authorized to perform secretsmanager:ListSecrets";
+      "AccessDeniedException: User: arn:aws:sts::123456789012:assumed-role/prod/ATV-Teams is not authorized to perform secretsmanager:ListSecrets";
 
     vi.spyOn(awsSecretsManagerProvider, "listRemoteSecrets").mockRejectedValueOnce(
       new SecretProviderClientError({
@@ -1309,7 +1309,7 @@ describeEmbeddedPostgres("secretService", () => {
     const companyId = await seedCompany();
     const svc = secretService(db);
     const rawProviderMessage =
-      "AccessDeniedException: User: arn:aws:sts::123456789012:assumed-role/prod/Paperclip is not authorized to perform secretsmanager:ListSecrets";
+      "AccessDeniedException: User: arn:aws:sts::123456789012:assumed-role/prod/ATV-Teams is not authorized to perform secretsmanager:ListSecrets";
 
     vi.spyOn(awsSecretsManagerProvider, "discoverProviderConfigs").mockRejectedValueOnce(
       new SecretProviderClientError({
@@ -1423,7 +1423,7 @@ describeEmbeddedPostgres("secretService", () => {
       config: { region: "us-east-1", namespace: "prod-use1" },
     });
     const rawProviderMessage =
-      "AccessDeniedException: User: arn:aws:sts::123456789012:assumed-role/prod/Paperclip is not authorized to perform secretsmanager:DescribeSecret on arn:aws:secretsmanager:us-east-1:123456789012:secret:prod/openai";
+      "AccessDeniedException: User: arn:aws:sts::123456789012:assumed-role/prod/ATV-Teams is not authorized to perform secretsmanager:DescribeSecret on arn:aws:secretsmanager:us-east-1:123456789012:secret:prod/openai";
     vi.spyOn(awsSecretsManagerProvider, "linkExternalSecret").mockRejectedValueOnce(
       new SecretProviderClientError({
         code: "access_denied",
@@ -1461,7 +1461,7 @@ describeEmbeddedPostgres("secretService", () => {
     expect(JSON.stringify(result.results[0]?.reason)).not.toContain("123456789012");
   });
 
-  it("rejects Paperclip-managed AWS namespace refs during preview and import commit", async () => {
+  it("rejects ATV-Teams-managed AWS namespace refs during preview and import commit", async () => {
     const companyId = await seedCompany();
     const svc = secretService(db);
     const awsVault = await svc.createProviderConfig(companyId, {
@@ -1521,7 +1521,7 @@ describeEmbeddedPostgres("secretService", () => {
       errorCount: 1,
       results: [expect.objectContaining({ status: "error" })],
     });
-    expect(result.results[0]?.reason).toMatch(/Paperclip-managed namespace/i);
+    expect(result.results[0]?.reason).toMatch(/ATV-Teams-managed namespace/i);
     const imported = await db.select().from(companySecrets).where(eq(companySecrets.key, "foreign-managed-secret"));
     expect(imported).toHaveLength(0);
   });

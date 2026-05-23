@@ -178,9 +178,9 @@ describe("cursor execute", () => {
           "PAPERCLIP_RUN_ID",
         ]),
       );
-      expect(capture.prompt).toContain("Paperclip runtime note:");
+      expect(capture.prompt).toContain("ATV-Teams runtime note:");
       expect(capture.prompt).toContain("PAPERCLIP_API_KEY");
-      expect(invocationPrompt).toContain("Paperclip runtime note:");
+      expect(invocationPrompt).toContain("ATV-Teams runtime note:");
       expect(invocationPrompt).toContain("PAPERCLIP_API_URL");
     } finally {
       if (previousHome === undefined) {
@@ -289,7 +289,7 @@ describe("cursor execute", () => {
               name: "paperclip",
               source: paperclipDir,
               required: true,
-              requiredReason: "Bundled Paperclip skills are always available for local adapters.",
+              requiredReason: "Bundled ATV-Teams skills are always available for local adapters.",
             },
             {
               name: "ascii-heart",

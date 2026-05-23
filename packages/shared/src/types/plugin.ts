@@ -127,7 +127,7 @@ export interface PluginEnvironmentDriverDeclaration {
 }
 
 /**
- * Declares a normal Paperclip agent that a plugin can provision and later
+ * Declares a normal ATV-Teams agent that a plugin can provision and later
  * resolve by stable key within each company.
  */
 export interface PluginManagedAgentDeclaration {
@@ -153,7 +153,7 @@ export interface PluginManagedAgentDeclaration {
   adapterPreference?: Array<AgentAdapterType | string>;
   /** Suggested adapter configuration. */
   adapterConfig?: Record<string, unknown>;
-  /** Suggested Paperclip runtime configuration. */
+  /** Suggested ATV-Teams runtime configuration. */
   runtimeConfig?: Record<string, unknown>;
   /** Suggested permissions object. Normalized by the host on create/reset. */
   permissions?: Record<string, unknown>;
@@ -192,7 +192,7 @@ export interface PluginLocalFolderDeclaration {
 }
 
 /**
- * Declares a normal Paperclip project that a plugin can provision and later
+ * Declares a normal ATV-Teams project that a plugin can provision and later
  * resolve by stable key within each company.
  */
 export interface PluginManagedProjectDeclaration {
@@ -423,7 +423,7 @@ export interface PluginLauncherDeclaration {
 }
 
 /**
- * Lower-bound semver requirement for the Paperclip host.
+ * Lower-bound semver requirement for the ATV-Teams host.
  *
  * The host should reject installation when its running version is lower than
  * the declared minimum.

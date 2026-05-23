@@ -48,7 +48,7 @@ function manifest(): PaperclipPluginManifestV1 {
     version: "0.1.0",
     displayName: "Managed Routines Test",
     description: "Test plugin",
-    author: "Paperclip",
+    author: "ATV-Teams",
     categories: ["automation"],
     capabilities: ["agents.managed", "projects.managed", "routines.managed"],
     entrypoints: { worker: "./dist/worker.js" },
@@ -128,7 +128,7 @@ describeEmbeddedPostgres("plugin-managed routines", () => {
     const pluginId = randomUUID();
     await db.insert(companies).values({
       id: companyId,
-      name: "Paperclip",
+      name: "ATV-Teams",
       issuePrefix: issuePrefix(companyId),
     });
     await db.insert(plugins).values({

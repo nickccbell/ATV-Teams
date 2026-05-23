@@ -93,7 +93,7 @@ function createLocalSandboxRunner() {
 }
 
 describe("codex execute", () => {
-  it("uses a Paperclip-managed CODEX_HOME outside worktree mode while preserving shared auth and config", async () => {
+  it("uses a ATV-Teams-managed CODEX_HOME outside worktree mode while preserving shared auth and config", async () => {
     const root = await fs.mkdtemp(path.join(os.tmpdir(), "paperclip-codex-execute-default-"));
     const workspace = path.join(root, "workspace");
     const commandPath = path.join(root, "codex");
@@ -173,7 +173,7 @@ describe("codex execute", () => {
       expect(logs).toContainEqual(
         expect.objectContaining({
           stream: "stdout",
-          chunk: expect.stringContaining("Using Paperclip-managed Codex home"),
+          chunk: expect.stringContaining("Using ATV-Teams-managed Codex home"),
         }),
       );
     } finally {
@@ -238,7 +238,7 @@ describe("codex execute", () => {
       expect(result.exitCode).toBe(0);
       expect(result.errorMessage).toBeNull();
       expect(commandNotes).toContain(
-        "Codex exec automatically applies repo-scoped AGENTS.md instructions from the current workspace; Paperclip does not currently suppress that discovery.",
+        "Codex exec automatically applies repo-scoped AGENTS.md instructions from the current workspace; ATV-Teams does not currently suppress that discovery.",
       );
     } finally {
       if (previousHome === undefined) delete process.env.HOME;
@@ -385,7 +385,7 @@ describe("codex execute", () => {
     }
   });
 
-  it("injects structured Paperclip wake payloads into env and prompt", async () => {
+  it("injects structured ATV-Teams wake payloads into env and prompt", async () => {
     const root = await fs.mkdtemp(path.join(os.tmpdir(), "paperclip-codex-execute-wake-"));
     const workspace = path.join(root, "workspace");
     const commandPath = path.join(root, "codex");
@@ -478,7 +478,7 @@ describe("codex execute", () => {
         latestCommentId: "comment-2",
         commentIds: ["comment-1", "comment-2"],
       });
-      expect(capture.prompt).toContain("## Paperclip Wake Payload");
+      expect(capture.prompt).toContain("## ATV-Teams Wake Payload");
       expect(capture.prompt).toContain("Treat this wake payload as the highest-priority change for the current heartbeat.");
       expect(capture.prompt).toContain("Do not switch to another issue until you have handled this wake.");
       expect(capture.prompt).toContain(
@@ -670,7 +670,7 @@ describe("codex execute", () => {
       expect(capture.argv).not.toContain("resume");
       expect(capture.argv).not.toContain('service_tier="fast"');
       expect(capture.argv).not.toContain("features.fast_mode=true");
-      expect(capture.prompt).toContain("Paperclip session handoff:");
+      expect(capture.prompt).toContain("ATV-Teams session handoff:");
       expect(capture.prompt).toContain("Issue continuation summary for the next fresh session.");
       expect(commandNotes).toContain("Codex transient fallback requested safer invocation settings for this retry.");
       expect(commandNotes).toContain("Codex transient fallback forced a fresh session with a continuation handoff.");
@@ -917,7 +917,7 @@ describe("codex execute", () => {
         checkedOutByHarness: true,
         commentIds: [],
       });
-      expect(capture.prompt).toContain("## Paperclip Wake Payload");
+      expect(capture.prompt).toContain("## ATV-Teams Wake Payload");
       expect(capture.prompt).toContain("Do not switch to another issue until you have handled this wake.");
       expect(capture.prompt).toContain("- issue: PAP-1201 Fix gallery opening for inline images");
       expect(capture.prompt).toContain("- pending comments: 0/0");
@@ -1024,12 +1024,12 @@ describe("codex execute", () => {
 
       const capture = JSON.parse(await fs.readFile(capturePath, "utf8")) as CapturePayload;
       expect(capture.argv).toEqual(expect.arrayContaining(["resume", "codex-session-1", "-"]));
-      expect(capture.prompt).toContain("## Paperclip Resume Delta");
+      expect(capture.prompt).toContain("## ATV-Teams Resume Delta");
       expect(capture.prompt).toContain("Do not switch to another issue until you have handled this wake.");
       expect(capture.prompt).toContain("Second comment");
       expect(capture.prompt).not.toContain("Follow the paperclip heartbeat.");
       expect(capture.prompt).not.toContain("You are managed instructions.");
-      expect(invocationPrompt).toContain("## Paperclip Resume Delta");
+      expect(invocationPrompt).toContain("## ATV-Teams Resume Delta");
       expect(invocationNotes).toContain(
         "Skipped stdin instruction reinjection because an existing Codex session is being resumed with a wake delta.",
       );
