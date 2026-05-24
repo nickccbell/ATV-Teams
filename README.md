@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="doc/assets/header.png" alt="ATV-Teams — runs your business" width="720" />
+  <img src="doc/assets/header.svg" alt="ATV-Teams — autonomous software-development teams" width="720" />
 </p>
 
 <p align="center">
@@ -404,7 +404,7 @@ We welcome contributions. See the [contributing guide](CONTRIBUTING.md) for deta
 
 ## Acknowledgements
 
-ATV-Teams is built on the open-source [ATV-Teams](https://github.com/paperclipai/paperclip) control plane. Internal package names (`@paperclipai/*`), the `paperclipai` CLI binary, and the `~/.paperclip/` config directory are preserved for compatibility with the upstream install path.
+ATV-Teams is built on the open-source [Paperclip](https://github.com/paperclipai/paperclip) control plane. Internal package names (`@paperclipai/*`), the `paperclipai` CLI binary, and the `~/.paperclip/` config directory are preserved for compatibility with the upstream install path.
 
 ## License
 
@@ -413,9 +413,5 @@ MIT &copy; 2026 ATV-Teams contributors. Portions © ATV-Teams contributors under
 ---
 
 <p align="center">
-  <img src="doc/assets/footer.jpg" alt="" width="720" />
-</p>
-
-<p align="center">
-  <sub>Open source under MIT. Built for people who want to run companies, not babysit agents.</sub>
+  <sub>Open source under MIT. Built for autonomous software-development teams powered by GitHub Copilot.</sub>
 </p>
