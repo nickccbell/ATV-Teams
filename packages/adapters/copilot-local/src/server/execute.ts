@@ -433,6 +433,7 @@ export async function execute(ctx: AdapterExecutionContext): Promise<AdapterExec
       sessionParams,
       sessionDisplayId: sessionId,
       summary: parsed.summary || null,
+      ...(parsed.usage ? { usage: parsed.usage } : {}),
     };
   }
 
@@ -457,5 +458,6 @@ export async function execute(ctx: AdapterExecutionContext): Promise<AdapterExec
     sessionParams,
     sessionDisplayId: sessionId,
     summary: parsed.summary || null,
+    ...(parsed.usage ? { usage: parsed.usage } : {}),
   };
 }
