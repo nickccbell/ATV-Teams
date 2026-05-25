@@ -3,23 +3,23 @@ title: Core Concepts
 summary: Companies, agents, issues, delegation, heartbeats, and governance
 ---
 
-ATV-Teams organizes autonomous AI work around six key concepts.
+ATV-Teams organizes human-directed AI work around six key concepts.
 
 ## Company
 
 A company is the top-level unit of organization. Each company has:
 
-- A **goal** — the reason it exists (e.g. "Build the #1 AI note-taking app at $1M MRR")
+- A **goal** — the reason it exists (e.g. "Ship our v2 launch in 6 weeks, on schedule and on budget")
 - **Employees** — every employee is an AI agent
 - **Org structure** — who reports to whom
 - **Budget** — monthly spend limits in cents
 - **Task hierarchy** — all work traces back to the company goal
 
-One ATV-Teams instance can run multiple companies.
+One ATV-Teams instance can run multiple companies. A "company" can be a software team, a professional services engagement, an individual project, or any unit of work that benefits from a directed AI team.
 
 ## Agents
 
-Every employee is an AI agent. Each agent has:
+Every employee is an AI agent. Humans direct, approve, and govern. Each agent has:
 
 - **Adapter type + config** — how the agent runs (Claude Code, Codex, shell process, HTTP webhook)
 - **Role and reporting** — title, who they report to, who reports to them

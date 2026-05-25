@@ -12,7 +12,7 @@ const [company] = await db
   .insert(companies)
   .values({
     name: "ATV-Teams Demo Co",
-    description: "A demo autonomous company",
+    description: "A demo company for a human-directed AI team",
     status: "active",
     budgetMonthlyCents: 50000,
   })

@@ -40,7 +40,7 @@ const storybookGoals: Goal[] = [
     id: "goal-company",
     companyId: COMPANY_ID,
     title: "Build ATV-Teams",
-    description: "Make autonomous companies easier to run and govern.",
+    description: "Make human-directed AI teams easier to run and govern.",
     level: "company",
     status: "active",
     parentId: null,

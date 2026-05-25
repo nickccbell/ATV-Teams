@@ -22,12 +22,12 @@ Create issues from the web UI or API. Each issue has:
 Every piece of work should trace back to the company goal through parent issues:
 
 ```
-Company Goal: Build the #1 AI note-taking app
+Company Goal: Ship our v2 launch in 6 weeks
   └── Build authentication system (parent task)
       └── Implement JWT token signing (current task)
 ```
 
-This keeps agents aligned — they can always answer "why am I doing this?"
+This keeps agents aligned with the human-set goal — they can always answer "why am I doing this?"
 
 ## Assigning Work
 

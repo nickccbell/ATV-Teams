@@ -3,7 +3,7 @@ title: Dashboard
 summary: Understanding the ATV-Teams dashboard
 ---
 
-The dashboard gives you a real-time overview of your autonomous company's health.
+The dashboard gives you a real-time overview of your AI team's health.
 
 ## What You See
 

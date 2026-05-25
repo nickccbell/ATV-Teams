@@ -516,7 +516,7 @@ Goals are displayed as a hierarchical tree, since goals have parent-child relati
 ┌─────────────────────────────────────────────────────────┐
 │ Goals                                    [+ New goal]   │
 ├─────────────────────────────────────────────────────────┤
-│ ▼ 🎯 Build the #1 AI note-taking app    Company  Active│
+│ ▼ 🎯 Ship our v2 launch in 6 weeks      Company  Active│
 │   ▼ 🎯 Grow signups to 10k              Team     Active│
 │       🎯 Launch marketing campaign       Agent  Planned │
 │       🎯 Optimize onboarding funnel      Agent  Planned │

@@ -46,7 +46,7 @@ ATV-Teams should support explicit review and approval stages as first-class work
 
 ### ✅ Multiple Human Users
 
-ATV-Teams needs a clearer path from solo operator to real human teams. That means shared board access, safer collaboration, and a better model for several humans supervising the same autonomous company.
+ATV-Teams needs a clearer path from solo operator to real human teams. That means shared board access, safer collaboration, and a better model for several humans co-directing the same AI team.
 
 ### ⚪ Cloud / Sandbox agents (e.g. Cursor / e2b agents)
 

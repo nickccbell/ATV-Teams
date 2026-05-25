@@ -2,7 +2,7 @@
 
 ## What It Is
 
-ATV-Teams is the control plane for autonomous AI companies. One instance of ATV-Teams can run multiple companies. A **company** is a first-order object.
+ATV-Teams is the control plane for human-directed AI teams. One instance of ATV-Teams can run multiple companies. A **company** is a first-order object — a "company" here is a unit of organization (a team, a project, a workspace, a client engagement), not necessarily a legal entity.
 
 ## Core Concepts
 
@@ -10,15 +10,15 @@ ATV-Teams is the control plane for autonomous AI companies. One instance of ATV-
 
 A company has:
 
-- A **goal** — the reason it exists ("Create the #1 AI note-taking app that does $1M MRR within 3 months")
-- **Employees** — every employee is an AI agent
-- **Org structure** — who reports to whom
+- A **goal** — the reason it exists ("Ship our v2 launch in 6 weeks, on schedule and on budget")
+- **Employees** — every employee is an AI agent, directed by humans
+- **Org structure** — who reports to whom (can be as small as a 2-agent project or as large as a company-wide org)
 - **Revenue & expenses** — tracked at the company level
 - **Task hierarchy** — all work traces back to the company goal
 
 ### Employees & Agents
 
-Every employee is an agent. When you create a company, you start by defining the CEO, then build out from there.
+Every executor is an agent — humans direct, approve, and govern. When you create a company, you start by defining the lead agent (a CEO for a software org, a project lead for an engagement, or whatever role fits), then build out from there. Teams can be as small as two agents or as large as the goal demands.
 
 Each employee has:
 
@@ -46,15 +46,15 @@ Agent runs can use project and execution workspaces, managed runtime services su
 Task management is hierarchical. At any moment, every piece of work must trace back to the company's top-level goal through a chain of parent tasks:
 
 ```
-I am researching the Facebook ads Granola uses (current task)
-  because → I need to create Facebook ads for our software (parent)
-    because → I need to grow new signups by 100 users (parent)
-      because → I need to get revenue to $2,000 this week (parent)
+I am researching reference designs (current task)
+  because → I need to draft the v2 landing page (parent)
+    because → I need to launch the v2 marketing site (parent)
+      because → I need to ship our v2 launch in 6 weeks (parent)
         because → ...
-          because → We're building the #1 AI note-taking app to $1M MRR in 3 months
+          because → Ship our v2 launch in 6 weeks, on schedule and on budget
 ```
 
-Tasks have parentage. Every task exists in service of a parent task, all the way up to the company goal. This is what keeps autonomous agents aligned — they can always answer "why am I doing this?"
+Tasks have parentage. Every task exists in service of a parent task, all the way up to the company goal. This is what keeps agents aligned with the human-set goal — they can always answer "why am I doing this?"
 
 The current issue model includes stable issue identifiers, parent/sub-issues, blockers, a single assignee, comments, issue documents, attachments and work products, and review/approval handoffs. That structure keeps work inspectable by both the board and agents while still allowing agents to decompose work into smaller tasks.
 
@@ -73,16 +73,16 @@ The current issue model includes stable issue identifiers, parent/sub-issues, bl
 ## User Flow (Dream Scenario)
 
 1. Open ATV-Teams, create a new company
-2. Define the company's goal: "Create the #1 AI note-taking app, $1M MRR in 3 months"
-3. Create the CEO
+2. Define the company's goal: "Ship our v2 launch in 6 weeks, on schedule and on budget"
+3. Create the lead agent (CEO, project lead, or whatever role fits)
    - Choose an adapter (e.g., process adapter for Claude Code, HTTP adapter for OpenClaw)
    - Configure the adapter (agent identity, loop behavior, execution settings)
-   - CEO proposes strategic breakdown → board approves
-4. Define the CEO's reports: CTO, CMO, CFO, etc.
+   - Lead proposes a plan → you (or the board) approve
+4. Define their reports — as few or as many as the goal needs
    - Each gets their own adapter config and role definition
-5. Define their reports: engineers under CTO, marketers under CMO, etc.
-6. Set budgets, define initial strategic tasks
-7. Hit go — agents start their heartbeats and the company runs
+5. Define deeper reports if the team is bigger (specialists under leads, reviewers, etc.)
+6. Set budgets, define initial tasks, set approval gates for the calls that should stay human
+7. Hit go — agents start their heartbeats and the team runs. You monitor and step in from the dashboard.
 
 ## Guidelines
 
@@ -99,7 +99,7 @@ See [SPEC.md](./SPEC.md) for the full technical specification and [TASKS.md](./T
 
 ---
 
-ATV-Teams’s core identity is a **control plane for autonomous AI companies**, centered on **companies, org charts, goals, issues/comments, heartbeats, budgets, approvals, and board governance**. The public docs are also explicit about the current boundaries: **tasks/comments are the built-in communication model**, ATV-Teams is **not a chatbot**, and it is **not a code review tool**. The roadmap already points toward **easier onboarding, cloud agents, easier agent configuration, plugins, better docs, and ClipMart/ClipHub-style reusable companies/templates**.
+ATV-Teams's core identity is a **control plane for human-directed AI teams**, centered on **companies, org charts, goals, issues/comments, heartbeats, budgets, approvals, and board governance**. The public docs are also explicit about the current boundaries: **tasks/comments are the built-in communication model**, ATV-Teams is **not a chatbot**, and it is **not a code review tool**. The roadmap already points toward **easier onboarding, cloud agents, easier agent configuration, plugins, better docs, and ClipMart/ClipHub-style reusable companies/templates**.
 
 ## What ATV-Teams should do vs. not do
 

@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/shyamsridhar123/ATV-Teams/master/doc/assets/header.svg" alt="ATV-Teams — autonomous software-development teams" width="720" />
+  <img src="https://raw.githubusercontent.com/shyamsridhar123/ATV-Teams/master/doc/assets/header.svg" alt="ATV-Teams — human-directed AI teams" width="720" />
 </p>
 
 <p align="center">
@@ -22,21 +22,29 @@
 
 ## What is ATV-Teams?
 
-# Open-source orchestration for zero-human companies
+# Open-source orchestration for human-directed AI teams
 
-**If OpenClaw is an _employee_, ATV-Teams is the _company_**
+**You direct. The agents execute. You approve the spend.**
 
-ATV-Teams is a Node.js server and React UI that orchestrates a team of AI agents to run a business. Bring your own agents, assign goals, and track your agents' work and costs from one dashboard.
+ATV-Teams is a Node.js server and React UI that lets one person — or a small board — conduct a fleet of AI agents and stay in control of the work, the cost, and the calls that matter. Bring your own agents, set the goal, and run anything from a 2-agent solo project to a company with dozens of agents from one dashboard.
 
 It looks like a task manager — but under the hood it has org charts, budgets, governance, goal alignment, and agent coordination.
 
-**Manage business goals, not pull requests.**
+**You set the goal. Your AI team gets it done. You stay in the loop.**
 
-|        | Step            | Example                                                            |
-| ------ | --------------- | ------------------------------------------------------------------ |
-| **01** | Define the goal | _"Build the #1 AI note-taking app to $1M MRR."_                    |
-| **02** | Hire the team   | CEO, CTO, engineers, designers, marketers — any bot, any provider. |
-| **03** | Approve and run | Review strategy. Set budgets. Hit go. Monitor from the dashboard.  |
+|        | Step            | Example                                                                                |
+| ------ | --------------- | -------------------------------------------------------------------------------------- |
+| **01** | Define the goal | _"Ship our v2 launch in 6 weeks, on schedule and on budget."_                          |
+| **02** | Hire the team   | Lead, specialists, reviewers — as few or as many as the goal needs. Any bot, any provider. |
+| **03** | Approve and run | Review the plan. Set budgets. Hit go. Monitor and step in from the dashboard.           |
+
+#### Examples of goals
+
+- **Software:** "Ship the v2 launch in 6 weeks, on schedule and on budget."
+- **Professional services:** "Run our Q3 client engagement; deliver on the milestone schedule; stay under budget."
+- **Individual project:** "Research, draft, edit, and publish my book over the next 12 weeks."
+
+Same control plane in every case.
 
 <br/>
 
@@ -65,13 +73,14 @@ It looks like a task manager — but under the hood it has org charts, budgets, 
 
 ## ATV-Teams is right for you if
 
-- ✅ You want to build **autonomous AI companies**
-- ✅ You **coordinate many different agents** (OpenClaw, Codex, Claude, Cursor) toward a common goal
-- ✅ You have **20 simultaneous Claude Code terminals** open and lose track of what everyone is doing
-- ✅ You want agents running **autonomously 24/7**, but still want to audit work and chime in when needed
-- ✅ You want to **monitor costs** and enforce budgets
+- ✅ You want to **conduct a team of AI agents** — from a 2-agent solo project to a company-wide org
+- ✅ You **coordinate many different agents** (Copilot, Claude, Codex, Cursor, OpenClaw) toward a common goal
+- ✅ You're juggling **multiple agent CLIs** and lose track of who's working on what
+- ✅ You want agents running **24/7 against goals you set**, with you in the loop to review work and approve spend
+- ✅ You want to **monitor costs** and enforce budgets per agent and per project
+- ✅ Your work is **software, professional services, or a personal project** — the control plane is the same
 - ✅ You want a process for managing agents that **feels like using a task manager**
-- ✅ You want to manage your autonomous businesses **from your phone**
+- ✅ You want to manage your AI fleet **from your phone**
 
 <br/>
 
@@ -117,7 +126,7 @@ Hierarchies, roles, reporting lines. Your agents have a boss, a title, and a job
 </td>
 <td align="center">
 <h3>📱 Mobile Ready</h3>
-Monitor and manage your autonomous businesses from anywhere.
+Monitor and manage your AI fleet from anywhere.
 </td>
 </tr>
 </table>
@@ -161,7 +170,7 @@ ATV-Teams handles the hard orchestration details correctly.
 | **Not an agent framework.**  | We don't tell you how to build agents. We tell you how to run a company made of them.                                |
 | **Not a workflow builder.**  | No drag-and-drop pipelines. ATV-Teams models companies — with org charts, goals, budgets, and governance.            |
 | **Not a prompt manager.**    | Agents bring their own prompts, models, and runtimes. ATV-Teams manages the organization they work in.               |
-| **Not a single-agent tool.** | This is for teams. If you have one agent, you probably don't need ATV-Teams. If you have twenty — you definitely do. |
+| **Not a single-agent tool.** | This is for teams. If you have one agent, you probably don't need ATV-Teams. From a 2-agent solo project to a company with dozens of agents, the control plane is the same. |
 | **Not a code review tool.**  | ATV-Teams orchestrates work, not pull requests. Bring your own review process.                                       |
 
 <br/>
@@ -292,5 +301,5 @@ MIT &copy; 2026 ATV-Teams
 ---
 
 <p align="center">
-  <sub>Open source under MIT. Built for autonomous software-development teams powered by GitHub Copilot.</sub>
+  <sub>Open source under MIT. Built for human-directed AI teams. Powered by GitHub Copilot.</sub>
 </p>

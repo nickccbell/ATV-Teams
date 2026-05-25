@@ -1,29 +1,32 @@
 # ATV-Teams
 
-**ATV-Teams is the backbone of the autonomous economy.** We are building the infrastructure that autonomous AI companies run on. Our goal is for ATV-Teams-powered companies to collectively generate economic output that rivals the GDP of the world's largest countries. Every decision we make should serve that: make autonomous companies more capable, more governable, more scalable, and more real.
+**ATV-Teams is the operating layer for human-directed AI teams.** We are building the control plane that lets one person — or a small board — conduct a fleet of AI agents and stay in charge of the work, the cost, and the calls that matter. Our goal is for ATV-Teams-powered teams to collectively generate economic output that rivals the GDP of the world's largest countries — with humans at the conductor's stand. Every decision we make should serve that: make AI teams more capable, more governable, more scalable, and the humans directing them more effective.
 
 ## The Vision
 
-Autonomous companies — AI workforces organized with real structure, governance, and accountability — will become a major force in the global economy. Not one company. Thousands. Millions. An entire economic layer that runs on AI labor, coordinated through ATV-Teams.
+The shape of work is changing. AI agents will do more and more of the execution — coding, drafting, researching, reviewing, coordinating — and the leverage will shift to the humans who direct them. One person with the right AI fleet will do the work of a team. A small team with the right fleet will do the work of a department. The work doesn't go away; the bottleneck does.
 
-ATV-Teams is not the company. ATV-Teams is what makes the companies possible. We are the control plane, the nervous system, the operating layer. Every autonomous company needs structure, task management, cost control, goal alignment, and human governance. That's us. We are to autonomous companies what the corporate operating system is to human ones — except this time, the operating system is real software, not metaphor.
+ATV-Teams is what makes that real. We are the control plane, the nervous system, the operating layer that lets a human stay in control as the number of agents grows. Every AI-driven team needs structure, task management, cost control, goal alignment, and human governance. That's us. Think of us as the operating system for the conductor of an AI orchestra — except the operating system is real software, not metaphor.
 
-The measure of our success is not whether one company works. It's whether ATV-Teams becomes the default foundation that autonomous companies are built on — and whether those companies, collectively, become a serious economic force that rivals the output of nations.
+ATV-Teams works the same whether you're shipping software, running a professional services engagement, or driving an individual project. The same control plane carries a 2-agent solo project all the way up to a company-wide org with dozens of agents.
+
+The measure of our success is not whether one team works. It's whether ATV-Teams becomes the default foundation that human-directed AI teams are built on — and whether those teams, collectively, become a serious economic force that rivals the output of nations.
 
 ## The Problem
 
-Task management software doesn't go far enough. When your entire workforce is AI agents, you need more than a to-do list — you need a **control plane** for an entire company.
+Task management software doesn't go far enough. When most of the execution is AI agents and you're the one steering, you need more than a to-do list — you need a **control plane** that keeps you in the loop without making you the bottleneck.
 
 ## What This Is
 
-ATV-Teams is the command, communication, and control plane for a company of AI agents. It is the single place where you:
+ATV-Teams is the command, communication, and control plane for a team of AI agents directed by humans. It is the single place where you:
 
-- **Manage agents as employees** — hire, organize, and track who does what
-- **Define org structure** — org charts that agents themselves operate within
+- **Direct agents as a team** — hire, organize, and track who does what
+- **Define the structure** — org charts and reporting lines that agents themselves operate within
 - **Track work in real time** — see at any moment what every agent is working on
-- **Control costs** — token salary budgets per agent, spend tracking, burn rate
-- **Align to goals** — agents see how their work serves the bigger mission
-- **Preserve work context** — comments, documents, work products, attachments, and company state stay attached to the work
+- **Control costs** — token budgets per agent, spend tracking, burn rate, hard stops
+- **Align to goals** — agents see how their work serves the bigger mission you set
+- **Approve what matters** — governance gates for the calls that should stay human
+- **Preserve work context** — comments, documents, work products, attachments, and team state stay attached to the work
 
 ## Architecture
 
@@ -55,4 +58,4 @@ The control plane doesn't run agents. It orchestrates them. Agents run wherever 
 
 ## Core Principle
 
-You should be able to look at ATV-Teams and understand your entire company at a glance — who's doing what, how much it costs, and whether it's working.
+You should be able to look at ATV-Teams and understand your entire AI team at a glance — who's doing what, how much it costs, and whether it's working — and step in at any time without having to be in the loop on every step.

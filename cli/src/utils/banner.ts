@@ -9,7 +9,7 @@ const ATV_TEAMS_ART = [
   "╚═╝  ╚═╝   ╚═╝     ╚═══╝           ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝",
 ] as const;
 
-const TAGLINE = "Open-source orchestration for zero-human companies";
+const TAGLINE = "Open-source orchestration for human-directed AI teams";
 
 export function printPaperclipCliBanner(): void {
   const lines = [

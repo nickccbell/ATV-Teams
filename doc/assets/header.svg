@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img" aria-label="ATV-Teams — autonomous software-development teams">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img" aria-label="ATV-Teams — human-directed AI teams">
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#fafafa"/>
@@ -30,7 +30,7 @@
   <!-- Wordmark -->
   <g font-family="'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif" fill="#18181b">
     <text x="360" y="175" font-size="78" font-weight="700" letter-spacing="-2">ATV-Teams</text>
-    <text x="360" y="225" font-size="26" font-weight="500" fill="#27272a">Autonomous software-development teams.</text>
+    <text x="360" y="225" font-size="26" font-weight="500" fill="#27272a">Human-directed AI teams.</text>
     <text x="360" y="262" font-size="20" font-weight="400" fill="#52525b">Open-source orchestration. Powered by GitHub Copilot.</text>
   </g>
 

@@ -29,7 +29,7 @@
 
   <g font-family="'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif" fill="#18181b">
     <text x="500" y="240" font-size="110" font-weight="700" letter-spacing="-3">ATV-Teams</text>
-    <text x="500" y="305" font-size="36" font-weight="500" fill="#27272a">Autonomous software-development teams.</text>
+    <text x="500" y="305" font-size="36" font-weight="500" fill="#27272a">Human-directed AI teams.</text>
     <text x="500" y="355" font-size="28" font-weight="400" fill="#52525b">Open-source orchestration. Powered by GitHub Copilot.</text>
   </g>
 

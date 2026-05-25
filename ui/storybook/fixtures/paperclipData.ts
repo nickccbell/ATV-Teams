@@ -238,7 +238,7 @@ export const storybookGoals: Goal[] = [
     id: "goal-company",
     companyId: "company-storybook",
     title: "Build ATV-Teams",
-    description: "Make ATV-Teams the control plane operators trust for autonomous AI companies.",
+    description: "Make ATV-Teams the control plane operators trust for human-directed AI teams.",
     level: "company",
     status: "active",
     parentId: null,

@@ -7,7 +7,7 @@
   Aim for 5–8 steps. See CONTRIBUTING.md for full examples.
 -->
 
-> - ATV-Teams orchestrates AI agents for zero-human companies
+> - ATV-Teams is the control plane for human-directed AI teams
 > - [Which subsystem or capability is involved]
 > - [What problem or gap exists]
 > - [Why it needs to be addressed]

@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "name": "ATV-Teams",
-  "description": "The control plane for autonomous AI companies",
+  "description": "The control plane for human-directed AI teams",
   "theme": "mint",
   "colors": {
     "primary": "#2563EB",
