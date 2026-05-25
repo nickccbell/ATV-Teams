@@ -2,18 +2,6 @@
   <img src="https://raw.githubusercontent.com/shyamsridhar123/ATV-Teams/master/doc/assets/header.svg" alt="ATV-Teams — human-directed AI teams" width="720" />
 </p>
 
-<p align="center">
-  <a href="#quickstart"><strong>Quickstart</strong></a> &middot;
-  <a href="https://github.com/shyamsridhar123/ATV-Teams"><strong>GitHub</strong></a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/shyamsridhar123/ATV-Teams/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT License" /></a>
-  <a href="https://github.com/shyamsridhar123/ATV-Teams/stargazers"><img src="https://img.shields.io/github/stars/shyamsridhar123/ATV-Teams?style=flat" alt="Stars" /></a>
-</p>
-
-<br/>
-
 <div align="center">
   <video src="https://github.com/user-attachments/assets/773bdfb2-6d1e-4e30-8c5f-3487d5b70c8f" width="600" controls></video>
 </div>

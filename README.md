@@ -2,18 +2,6 @@
   <img src="doc/assets/header.svg" alt="ATV-Teams — human-directed AI teams" width="720" />
 </p>
 
-<p align="center">
-  <a href="#quickstart"><strong>Quickstart</strong></a> &middot;
-  <a href="https://github.com/shyamsridhar123/ATV-Teams"><strong>GitHub</strong></a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/shyamsridhar123/ATV-Teams/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT License" /></a>
-  <a href="https://github.com/shyamsridhar123/ATV-Teams/stargazers"><img src="https://img.shields.io/github/stars/shyamsridhar123/ATV-Teams?style=flat" alt="Stars" /></a>
-</p>
-
-<br/>
-
 ## What is ATV-Teams?
 
 # Open-source orchestration for human-directed AI teams
