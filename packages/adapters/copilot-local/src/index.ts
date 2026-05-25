@@ -20,13 +20,13 @@ export const COPILOT_OAUTH_SCOPES = ["read:user", "copilot"] as const;
  * model used at runtime is selected by the Copilot CLI from the user's
  * Copilot entitlements; this list is a UX hint only.
  */
-export const DEFAULT_COPILOT_LOCAL_MODEL = "gpt-4.1";
+export const DEFAULT_COPILOT_LOCAL_MODEL = "claude-sonnet-4.6";
 
 export const models = [
+  { id: "claude-opus-4.7", label: "claude-opus-4.7" },
   { id: DEFAULT_COPILOT_LOCAL_MODEL, label: DEFAULT_COPILOT_LOCAL_MODEL },
-  { id: "gpt-5", label: "gpt-5" },
-  { id: "claude-sonnet-4.5", label: "claude-sonnet-4.5" },
-  { id: "o3-mini", label: "o3-mini" },
+  { id: "claude-haiku-4.5", label: "claude-haiku-4.5" },
+  { id: "gpt-5.5", label: "gpt-5.5" },
 ];
 
 export const agentConfigurationDoc = `# copilot_local agent configuration

@@ -38,6 +38,11 @@ tmp/
 feedback-export-*
 diagnostics/
 
+# Local dev-runner bypass (used when pnpm dev hangs on Windows; see issue #9)
+local-pg-keepalive.mjs
+**/local-pg-keepalive.mjs
+packages/db/create-db*.mjs
+
 # Editor / tool temp files
 *.tmp
 .vscode/
