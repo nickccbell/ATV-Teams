@@ -1,48 +1,95 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" role="img" aria-label="ATV-Teams — human-directed AI teams">
   <defs>
-    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#fafafa"/>
-      <stop offset="1" stop-color="#e4e4e7"/>
+    <linearGradient id="dawn" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff7ed"/>
+      <stop offset="0.42" stop-color="#dbeafe"/>
+      <stop offset="1" stop-color="#ede9fe"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0ea5e9"/>
-      <stop offset="1" stop-color="#6366f1"/>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a7f3d0" stop-opacity="0.58"/>
+      <stop offset="0.45" stop-color="#93c5fd" stop-opacity="0.52"/>
+      <stop offset="1" stop-color="#c4b5fd" stop-opacity="0.58"/>
     </linearGradient>
+    <linearGradient id="ink" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#172554"/>
+      <stop offset="1" stop-color="#312e81"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="24%" cy="21%" r="42%">
+      <stop offset="0" stop-color="#fed7aa" stop-opacity="0.95"/>
+      <stop offset="0.55" stop-color="#fde68a" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
   </defs>
 
-  <rect width="1280" height="640" fill="url(#sky)"/>
+  <rect width="1280" height="640" fill="url(#dawn)"/>
+  <rect width="1280" height="640" fill="url(#sun)"/>
 
-  <!-- Decorative team-hierarchy graph -->
-  <g transform="translate(170 200)" stroke="#a1a1aa" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.75">
-    <line x1="100" y1="40" x2="100" y2="150"/>
-    <line x1="100" y1="150" x2="20" y2="260"/>
-    <line x1="100" y1="150" x2="180" y2="260"/>
-    <line x1="100" y1="150" x2="100" y2="260"/>
-  </g>
-  <g transform="translate(170 200)">
-    <circle cx="100" cy="30"  r="22" fill="#18181b"/>
-    <circle cx="100" cy="160" r="17" fill="#27272a"/>
-    <circle cx="20"  cy="270" r="14" fill="#52525b"/>
-    <circle cx="100" cy="270" r="14" fill="#52525b"/>
-    <circle cx="180" cy="270" r="14" fill="#52525b"/>
-  </g>
+  <path d="M0 390 C160 342 292 418 455 374 C610 332 718 424 891 356 C1053 292 1168 354 1280 320 L1280 640 L0 640 Z" fill="url(#water)" opacity="0.92"/>
+  <path d="M0 440 C174 398 315 462 488 420 C642 383 780 454 930 405 C1086 354 1180 392 1280 362" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" opacity="0.56"/>
+  <path d="M0 489 C184 455 333 514 510 472 C668 435 814 508 962 464 C1100 423 1198 454 1280 430" fill="none" stroke="#7dd3fc" stroke-width="5" stroke-linecap="round" opacity="0.36"/>
 
-  <g font-family="'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif" fill="#18181b">
-    <text x="500" y="240" font-size="110" font-weight="700" letter-spacing="-3">ATV-Teams</text>
-    <text x="500" y="305" font-size="36" font-weight="500" fill="#27272a">Human-directed AI teams.</text>
-    <text x="500" y="355" font-size="28" font-weight="400" fill="#52525b">Open-source orchestration. Powered by GitHub Copilot.</text>
+  <g opacity="0.36">
+    <ellipse cx="108" cy="418" rx="105" ry="21" fill="#bfdbfe" transform="rotate(-9 108 418)"/>
+    <ellipse cx="186" cy="488" rx="86" ry="19" fill="#86efac" transform="rotate(11 186 488)"/>
+    <ellipse cx="350" cy="402" rx="118" ry="21" fill="#c4b5fd" transform="rotate(-7 350 402)"/>
+    <ellipse cx="604" cy="492" rx="140" ry="22" fill="#f9a8d4" transform="rotate(5 604 492)"/>
+    <ellipse cx="783" cy="399" rx="108" ry="19" fill="#fde68a" transform="rotate(-11 783 399)"/>
+    <ellipse cx="1113" cy="468" rx="135" ry="21" fill="#99f6e4" transform="rotate(7 1113 468)"/>
   </g>
 
-  <rect x="500" y="395" width="160" height="6" rx="3" fill="url(#accent)"/>
+  <g opacity="0.74">
+    <ellipse cx="232" cy="472" rx="50" ry="15" fill="#166534" opacity="0.28" transform="rotate(-10 232 472)"/>
+    <ellipse cx="282" cy="445" rx="36" ry="11" fill="#15803d" opacity="0.24" transform="rotate(15 282 445)"/>
+    <ellipse cx="920" cy="480" rx="52" ry="15" fill="#166534" opacity="0.22" transform="rotate(8 920 480)"/>
+    <ellipse cx="982" cy="436" rx="39" ry="12" fill="#15803d" opacity="0.24" transform="rotate(-16 982 436)"/>
+    <circle cx="268" cy="436" r="6" fill="#f9a8d4" opacity="0.78"/>
+    <circle cx="956" cy="427" r="6" fill="#f0abfc" opacity="0.78"/>
+  </g>
 
-  <g font-family="'Inter', system-ui, sans-serif" font-size="20" font-weight="500" fill="#3f3f46">
-    <g transform="translate(500 430)">
-      <rect width="110" height="40" rx="20" fill="#e4e4e7"/><text x="22" y="27">CEO</text>
-      <rect x="125" width="110" height="40" rx="20" fill="#e4e4e7"/><text x="151" y="27">CTO</text>
-      <rect x="250" width="150" height="40" rx="20" fill="#e4e4e7"/><text x="275" y="27">Engineer</text>
-      <rect x="415" width="90"  height="40" rx="20" fill="#e4e4e7"/><text x="441" y="27">QA</text>
+  <g transform="translate(137 147)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M126 206 C187 123 279 75 395 63" stroke="#60a5fa" stroke-width="5" opacity="0.36"/>
+    <path d="M139 222 C220 183 318 174 429 207" stroke="#8b5cf6" stroke-width="5" opacity="0.34"/>
+    <path d="M130 240 C207 303 308 323 406 284" stroke="#14b8a6" stroke-width="5" opacity="0.36"/>
+    <path d="M125 207 L88 153" stroke="#1e3a8a" stroke-width="7"/>
+    <path d="M122 214 L89 267" stroke="#1e3a8a" stroke-width="7"/>
+    <circle cx="121" cy="126" r="22" fill="#1e3a8a"/>
+    <path d="M88 177 C101 144 146 144 164 177 C177 201 186 229 169 242 C148 257 97 247 78 226 C64 207 76 193 88 177 Z" fill="#312e81"/>
+    <path d="M92 178 C66 188 55 216 46 247" stroke="#1e3a8a" stroke-width="7"/>
+    <path d="M156 178 L239 117" stroke="#92400e" stroke-width="6"/>
+    <path d="M153 177 C179 165 198 150 214 132" stroke="#1e3a8a" stroke-width="7"/>
+    <circle cx="395" cy="63" r="21" fill="#bfdbfe" opacity="0.36"/>
+    <circle cx="429" cy="207" r="21" fill="#c4b5fd" opacity="0.36"/>
+    <circle cx="406" cy="284" r="21" fill="#99f6e4" opacity="0.36"/>
+    <circle cx="395" cy="63" r="15" fill="#fef3c7" stroke="#60a5fa" stroke-width="6"/>
+    <circle cx="429" cy="207" r="15" fill="#fef3c7" stroke="#8b5cf6" stroke-width="6"/>
+    <circle cx="406" cy="284" r="15" fill="#fef3c7" stroke="#14b8a6" stroke-width="6"/>
+    <circle cx="300" cy="124" r="10" fill="#dbeafe" stroke="#60a5fa" stroke-width="3"/>
+    <circle cx="315" cy="192" r="10" fill="#ede9fe" stroke="#8b5cf6" stroke-width="3"/>
+    <circle cx="292" cy="275" r="10" fill="#ccfbf1" stroke="#14b8a6" stroke-width="3"/>
+  </g>
+
+  <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif">
+    <text x="548" y="249" fill="url(#ink)" font-size="116" font-weight="800" letter-spacing="-5">ATV-Teams</text>
+    <text x="554" y="324" fill="#334155" font-size="40" font-weight="650">Human-directed AI teams.</text>
+    <text x="556" y="377" fill="#475569" font-size="28" font-weight="450">Conduct the fleet. Approve the calls. Ship the work.</text>
+  </g>
+
+  <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="18" font-weight="650" fill="#1e293b">
+    <g transform="translate(556 428)">
+      <rect width="156" height="44" rx="22" fill="#ffffff" opacity="0.6"/>
+      <circle cx="27" cy="22" r="5" fill="#60a5fa"/>
+      <text x="46" y="29">Direction</text>
+      <rect x="176" width="130" height="44" rx="22" fill="#ffffff" opacity="0.52"/>
+      <circle cx="203" cy="22" r="5" fill="#8b5cf6"/>
+      <text x="222" y="29">Fleet</text>
+      <rect x="326" width="146" height="44" rx="22" fill="#ffffff" opacity="0.48"/>
+      <circle cx="353" cy="22" r="5" fill="#f59e0b"/>
+      <text x="372" y="29">Budgets</text>
+      <rect x="492" width="156" height="44" rx="22" fill="#ffffff" opacity="0.52"/>
+      <circle cx="519" cy="22" r="5" fill="#14b8a6"/>
+      <text x="538" y="29">Approvals</text>
     </g>
   </g>
 
-  <text x="500" y="540" font-family="'Inter', monospace" font-size="18" fill="#71717a">github.com/shyamsridhar123/ATV-Teams</text>
+  <path d="M556 400 C620 391 698 411 775 396 C850 381 912 401 984 388" fill="none" stroke="#f59e0b" stroke-width="7" stroke-linecap="round" opacity="0.58"/>
 </svg>

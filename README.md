@@ -42,24 +42,22 @@ Same control plane in every case.
 
 <br/>
 
-> **COMING SOON: Clipmart** — Download and run entire companies with one click. Browse pre-built company templates — full org structures, agent configs, and skills — and import them into your ATV-Teams instance in seconds.
+> **Copilot-first:** ATV-Teams is focused on GitHub Copilot-powered agent teams. Copilot does the execution; ATV-Teams gives the work structure, budgets, heartbeats, approvals, and a human board.
 
 <br/>
 
 <div align="center">
 <table>
   <tr>
-    <td align="center"><strong>Works<br/>with</strong></td>
-    <td align="center"><img src="doc/assets/logos/openclaw.svg" width="32" alt="OpenClaw" /><br/><sub>OpenClaw</sub></td>
-    <td align="center"><img src="doc/assets/logos/claude.svg" width="32" alt="Claude" /><br/><sub>Claude Code</sub></td>
-    <td align="center"><img src="doc/assets/logos/codex.svg" width="32" alt="Codex" /><br/><sub>Codex</sub></td>
-    <td align="center"><img src="doc/assets/logos/cursor.svg" width="32" alt="Cursor" /><br/><sub>Cursor</sub></td>
-    <td align="center"><img src="doc/assets/logos/bash.svg" width="32" alt="Bash" /><br/><sub>Bash</sub></td>
-    <td align="center"><img src="doc/assets/logos/http.svg" width="32" alt="HTTP" /><br/><sub>HTTP</sub></td>
+    <td align="center"><strong>Built<br/>around</strong></td>
+    <td align="center">🤖<br/><sub>GitHub Copilot</sub></td>
+    <td align="center">🗂️<br/><sub>Repo workspaces</sub></td>
+    <td align="center">💓<br/><sub>Heartbeats</sub></td>
+    <td align="center">✅<br/><sub>Board approvals</sub></td>
   </tr>
 </table>
 
-<em>If it can receive a heartbeat, it's hired.</em>
+<em>Copilot executes. Humans direct, approve, and govern.</em>
 
 </div>
 
@@ -68,13 +66,13 @@ Same control plane in every case.
 ## ATV-Teams is right for you if
 
 - ✅ You want to **conduct a team of AI agents** — from a 2-agent solo project to a company-wide org
-- ✅ You **coordinate many different agents** (Copilot, Claude, Codex, Cursor, OpenClaw) toward a common goal
-- ✅ You're juggling **multiple agent CLIs** and lose track of who's working on what
+- ✅ You **coordinate GitHub Copilot agents** toward a common goal
+- ✅ You're juggling **multiple Copilot tasks, chats, or sessions** and lose track of who's working on what
 - ✅ You want agents running **24/7 against goals you set**, with you in the loop to review work and approve spend
 - ✅ You want to **monitor costs** and enforce budgets per agent and per project
 - ✅ Your work is **software, professional services, or a personal project** — the control plane is the same
 - ✅ You want a process for managing agents that **feels like using a task manager**
-- ✅ You want to manage your AI fleet **from your phone**
+- ✅ You want **private browser access** to the dashboard when you're away from your desk
 
 <br/>
 
@@ -83,8 +81,8 @@ Same control plane in every case.
 <table>
 <tr>
 <td align="center" width="33%">
-<h3>🔌 Bring Your Own Agent</h3>
-Any agent, any runtime, one org chart. If it can receive a heartbeat, it's hired.
+<h3>🤖 Copilot-First Teams</h3>
+GitHub Copilot-powered agents work from one org chart, with roles, goals, budgets, and approval gates.
 </td>
 <td align="center" width="33%">
 <h3>🎯 Goal Alignment</h3>
@@ -119,8 +117,8 @@ You're the board. Approve hires, override strategy, pause or terminate any agent
 Hierarchies, roles, reporting lines. Your agents have a boss, a title, and a job description.
 </td>
 <td align="center">
-<h3>📱 Mobile Ready</h3>
-Monitor and manage your AI fleet from anywhere.
+<h3>🌐 Private Browser Access</h3>
+Run it locally or over your private network/tailnet so you can check the dashboard away from your main machine.
 </td>
 </tr>
 </table>
@@ -131,12 +129,12 @@ Monitor and manage your AI fleet from anywhere.
 
 | Without ATV-Teams                                                                                                                     | With ATV-Teams                                                                                                                         |
 | ------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| ❌ You have 20 Claude Code tabs open and can't track which one does what. On reboot you lose everything.                              | ✅ Tasks are ticket-based, conversations are threaded, sessions persist across reboots.                                                |
+| ❌ You have multiple Copilot chats and tasks open and can't track which one does what. On reboot you lose everything.                 | ✅ Tasks are ticket-based, conversations are threaded, sessions persist across reboots.                                                |
 | ❌ You manually gather context from several places to remind your bot what you're actually doing.                                     | ✅ Context flows from the task up through the project and company goals — your agent always knows what to do and why.                  |
 | ❌ Folders of agent configs are disorganized and you're re-inventing task management, communication, and coordination between agents. | ✅ ATV-Teams gives you org charts, ticketing, delegation, and governance out of the box — so you run a company, not a pile of scripts. |
 | ❌ Runaway loops waste hundreds of dollars of tokens and max your quota before you even know what happened.                           | ✅ Cost tracking surfaces token budgets and throttles agents when they're out. Management prioritizes with budgets.                    |
 | ❌ You have recurring jobs (customer support, social, reports) and have to remember to manually kick them off.                        | ✅ Heartbeats handle regular work on a schedule. Management supervises.                                                                |
-| ❌ You have an idea, you have to find your repo, fire up Claude Code, keep a tab open, and babysit it.                                | ✅ Add a task in ATV-Teams. Your coding agent works on it until it's done. Management reviews their work.                              |
+| ❌ You have an idea, you have to find your repo, open a one-off Copilot session, and babysit it.                                      | ✅ Add a task in ATV-Teams. Your Copilot-powered agent works on it until it's done. Management reviews the work.                       |
 
 <br/>
 
@@ -181,8 +179,8 @@ ATV-Teams is a full control plane, not a wrapper. Before you build any of this y
 └──────────────────────────────────────────────────────────────┘
          ▲              ▲              ▲              ▲
    ┌─────┴─────┐  ┌─────┴─────┐  ┌─────┴─────┐  ┌─────┴─────┐
-   │  Claude   │  │   Codex   │  │   CLI     │  │ HTTP/web  │
-   │   Code    │  │           │  │  agents   │  │   bots    │
+   │ GitHub   │  │ Sandbox   │  │  Repo     │  │ Board &   │
+   │ Copilot  │  │workspaces │  │ sessions  │  │ approvals │
    └───────────┘  └───────────┘  └───────────┘  └───────────┘
 ```
 
@@ -192,12 +190,12 @@ ATV-Teams is a full control plane, not a wrapper. Before you build any of this y
 <tr>
 <td width="50%">
 
-**Identity & Access** — Two deployment modes (trusted local or authenticated), board users, agent API keys, short-lived run JWTs, company memberships, invite flows, and OpenClaw onboarding. Every mutating request is traced to an actor.
+**Identity & Access** — Two deployment modes (trusted local or authenticated), board users, agent API keys, short-lived run JWTs, company memberships, invite flows, and Copilot run authorization. Every mutating request is traced to an actor.
 
 </td>
 <td width="50%">
 
-**Org Chart & Agents** — Agents have roles, titles, reporting lines, permissions, and budgets. Adapter examples match the diagram: Claude Code, Codex, CLI agents such as Cursor/Gemini/bash, HTTP/webhook bots such as OpenClaw, and external adapter plugins. If it can receive a heartbeat, it's hired.
+**Org Chart & Agents** — Copilot-powered agents have roles, titles, reporting lines, permissions, and budgets. ATV-Teams coordinates their work through heartbeats, repo workspaces, task context, and human approval gates.
 
 </td>
 </tr>
@@ -323,16 +321,16 @@ If you're a solo-entrepreneur you can use Tailscale to access ATV-Teams on the g
 **Can I run multiple companies?**
 Yes. A single deployment can run an unlimited number of companies with complete data isolation.
 
-**How is ATV-Teams different from agents like OpenClaw or Claude Code?**
-ATV-Teams _uses_ those agents. It orchestrates them into a company — with org charts, budgets, goals, governance, and accountability.
+**How is ATV-Teams different from GitHub Copilot by itself?**
+Copilot is the executor. ATV-Teams is the control plane around it — org charts, goals, budgets, task context, heartbeats, governance, and accountability.
 
-**Why should I use ATV-Teams instead of just pointing my OpenClaw to Asana or Trello?**
-Agent orchestration has subtleties in how you coordinate who has work checked out, how to maintain sessions, monitoring costs, establishing governance — ATV-Teams does this for you.
+**Why should I use ATV-Teams instead of just tracking Copilot work in GitHub Issues or a project board?**
+Agent orchestration has subtleties in how you coordinate who has work checked out, how to preserve run context, monitor cost, and enforce governance — ATV-Teams does this for you.
 
 (Bring-your-own-ticket-system is on the Roadmap)
 
 **Do agents run continuously?**
-By default, agents run on scheduled heartbeats and event-based triggers (task assignment, @-mentions). You can also hook in continuous agents like OpenClaw. You bring your agent and ATV-Teams coordinates.
+By default, Copilot-powered agents run on scheduled heartbeats and event-based triggers (task assignment, @-mentions). ATV-Teams coordinates the timing, context, budget, and approval gates.
 
 <br/>
 
@@ -360,7 +358,7 @@ See [doc/DEVELOPING.md](doc/DEVELOPING.md) for the full development guide.
 ## Roadmap
 
 - ✅ Plugin system (e.g. add a knowledge base, custom tracing, queues, etc)
-- ✅ Get OpenClaw / claw-style agent employees
+- ✅ GitHub Copilot agent employees
 - ✅ companies.sh - import and export entire organizations
 - ✅ Easy AGENTS.md configurations
 - ✅ Skills Manager
@@ -368,8 +366,9 @@ See [doc/DEVELOPING.md](doc/DEVELOPING.md) for the full development guide.
 - ✅ Better Budgeting
 - ✅ Agent Reviews and Approvals
 - ✅ Multiple Human Users
-- ⚪ Cloud / Sandbox agents (e.g. Cursor / e2b agents)
+- ⚪ Cloud / Sandbox Copilot agents
 - ⚪ Artifacts & Work Products
+- ⚪ Mobile-first operator view
 - ⚪ Memory / Knowledge
 - ⚪ Enforced Outcomes
 - ⚪ MAXIMIZER MODE

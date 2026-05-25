@@ -1,6 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="140" height="32" viewBox="0 0 140 32" fill="none">
-  <g stroke-linecap="round" stroke-linejoin="round">
-    <path stroke="#18181b" stroke-width="2" d="m18 4-8.414 8.586a2 2 0 0 0 2.829 2.829l8.414-8.586a4 4 0 1 0-5.657-5.657l-8.379 8.551a6 6 0 1 0 8.485 8.485l8.379-8.551"/>
-  </g>
-  <text x="32" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="600" fill="#18181b">ATV-Teams</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="140" height="32" viewBox="0 0 140 32" fill="none" role="img" aria-label="ATV-Teams">
+  <defs>
+    <linearGradient id="mark" x1="4" y1="4" x2="29" y2="28">
+      <stop offset="0" stop-color="#60a5fa"/>
+      <stop offset="0.5" stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#14b8a6"/>
+    </linearGradient>
+  </defs>
+  <path d="M8 21 C13 12 21 8 28 8" stroke="url(#mark)" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M9 23 C16 20 23 20 30 24" stroke="url(#mark)" stroke-width="2.2" stroke-linecap="round" opacity="0.7"/>
+  <circle cx="7" cy="22" r="3" fill="#172554"/>
+  <path d="M9 21 L17 15" stroke="#92400e" stroke-width="1.7" stroke-linecap="round"/>
+  <circle cx="28" cy="8" r="3.2" fill="#fef3c7" stroke="#60a5fa" stroke-width="1.6"/>
+  <circle cx="30" cy="24" r="3.2" fill="#fef3c7" stroke="#14b8a6" stroke-width="1.6"/>
+  <text x="40" y="22" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#172554">ATV-Teams</text>
 </svg>
