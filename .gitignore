@@ -42,6 +42,13 @@ diagnostics/
 local-pg-keepalive.mjs
 **/local-pg-keepalive.mjs
 packages/db/create-db*.mjs
+packages/db/probe*.mjs
+**/probe-pg.mjs
+
+# Scratch tmp_* directories (matches tmp_ffmpeg_rate_test etc.)
+# Note: existing tmp-* rule only catches dash-prefixed scratch dirs.
+tmp_*/
+**/tmp_*/
 
 # Editor / tool temp files
 *.tmp
