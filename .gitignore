@@ -64,3 +64,6 @@ tests/release-smoke/playwright-report/
 .superpowers/
 .claude/worktrees/
 .herenow
+
+# Local HyperFrames / video project workspaces
+doc/assets/video/
