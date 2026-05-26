@@ -21,7 +21,7 @@ A Company is a first-order object. One ATV-Teams instance runs multiple Companie
 
 Every Company has a **Board** that governs high-impact decisions. The Board is the human oversight layer.
 
-**V1: Single human Board.** One human operator.
+**V1: Single human Board, with multi-user authenticated mode available.** In `local_trusted` mode the Board is one human operator; the shipped `authenticated` deployment mode (Better Auth, GitHub OAuth, company memberships, instance roles) supports multiple human Board members on a single instance. The protocol still treats the Board as one logical governance entity.
 
 #### Board Approval Gates (V1)
 
@@ -188,17 +188,22 @@ The heartbeat is a protocol, not a runtime. ATV-Teams defines how to initiate an
 
 Agent configuration includes an **adapter** that defines how ATV-Teams invokes the agent. Built-in adapters include:
 
-| Adapter | Mechanism | Example |
-| ---------------- | -------------------------- | -------------------------------------------------- |
-| `process` | Execute a child process | `python run_agent.py --agent-id {id}` |
-| `http` | Send an HTTP request | `POST https://openclaw.example.com/hook/{id}` |
-| `claude_local` | Local Claude Code process | Claude Code heartbeat worker |
-| `codex_local` | Local Codex process | Codex CLI heartbeat worker |
-| `opencode_local` | Local OpenCode process | OpenCode heartbeat worker |
-| `pi_local` | Local Pi process | Pi CLI heartbeat worker |
-| `cursor` | Cursor API/CLI bridge | Cursor-integrated heartbeat worker |
-| `openclaw_gateway` | OpenClaw gateway API | Managed OpenClaw agent via gateway |
-| `hermes_local` | Local Hermes process | Hermes agent heartbeat worker |
+| Adapter             | Mechanism                          | Example                                            |
+| ------------------- | ---------------------------------- | -------------------------------------------------- |
+| `process`           | Execute a child process            | `python run_agent.py --agent-id {id}`              |
+| `http`              | Send an HTTP request               | `POST https://openclaw.example.com/hook/{id}`      |
+| `copilot_local`     | Local GitHub Copilot CLI process   | Copilot CLI heartbeat worker (primary integration) |
+| `claude_local`      | Local Claude Code process          | Claude Code heartbeat worker                       |
+| `codex_local`       | Local Codex process                | Codex CLI heartbeat worker                         |
+| `gemini_local`      | Local Gemini process               | Gemini CLI heartbeat worker                        |
+| `grok_local`        | Local Grok process                 | Grok CLI heartbeat worker                          |
+| `opencode_local`    | Local OpenCode process             | OpenCode heartbeat worker                          |
+| `pi_local`          | Local Pi process                   | Pi CLI heartbeat worker                            |
+| `acpx_local`        | Local ACPX process                 | ACPX heartbeat worker                              |
+| `cursor`            | Cursor CLI bridge (local)          | Cursor-integrated heartbeat worker                 |
+| `cursor_cloud`      | Cursor cloud API                   | Hosted Cursor agent                                |
+| `openclaw_gateway`  | OpenClaw gateway API               | Managed OpenClaw agent via gateway                 |
+| `hermes_local`      | Local Hermes process               | Hermes agent heartbeat worker                      |
 
 The `process` and `http` adapters ship as generic defaults. Additional built-in adapters cover common local coding runtimes (see list above), and new adapter types can be registered via the plugin system (see Plugin / Extension Architecture).
 
@@ -325,7 +330,7 @@ How a Company goes from "created" to "running":
 
 ATV-Teams ships default Agent templates:
 
-- **Default Agent** — a basic Claude Code or Codex loop. Knows the **ATV-Teams Skill** (SKILL.md) so it can interact with the task system, read Company context, report status.
+- **Default Agent** — a basic local-coding-tool loop (GitHub Copilot, Claude Code, or Codex). Knows the **ATV-Teams Skill** (SKILL.md) so it can interact with the task system, read Company context, report status.
 - **Default CEO** — extends the Default Agent with CEO-specific behavior: strategic planning, delegation to reports, progress review, Board communication.
 
 These are starting points. Users can customize or replace them entirely.
@@ -477,7 +482,7 @@ Each is a distinct page/route:
 - [ ] **Board governance** — human approves hires, pauses Agents, sets budgets, full PM access
 - [ ] **Cost tracking** — Agents report token usage, per-Agent/task/Company visibility
 - [ ] **Budget controls** — soft alerts + hard ceiling with auto-pause
-- [ ] **Default agent** — basic Claude Code/Codex loop with ATV-Teams skill
+- [ ] **Default agent** — basic local-coding-tool loop (Copilot / Claude Code / Codex) with ATV-Teams skill
 - [ ] **Default CEO** — strategic planning, delegation, board communication
 - [ ] **ATV-Teams skill (SKILL.md)** — teaches agents to interact with the API
 - [ ] **REST API** — full API for agent interaction (Express)
