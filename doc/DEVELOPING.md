@@ -43,6 +43,8 @@ This starts:
 
 `pnpm dev` and `pnpm dev:once` are now idempotent for the current repo and instance: if the matching ATV-Teams dev runner is already alive, ATV-Teams reports the existing process instead of starting a duplicate.
 
+When the dev runner uses embedded PostgreSQL (the default — no `DATABASE_URL` set), it now owns the cluster lifecycle directly: a single `embedded-postgres` instance is started once by `scripts/dev-runner.ts` and reused by every subprocess (migration-status, db:migrate, server) via a generated `DATABASE_URL`. This avoids the per-subprocess `start()`/`stop()` cycling that hangs `pnpm dev` on Windows (issue #9). To bypass embedded mode, set `DATABASE_URL` to an external Postgres connection string before `pnpm dev`.
+
 Issue execution may also use project execution workspace policies and workspace runtime services for per-project worktrees, preview servers, and managed dev commands. Configure those through the project workspace/runtime surfaces rather than starting long-running unmanaged processes when a task needs a reusable service.
 
 ## Storybook

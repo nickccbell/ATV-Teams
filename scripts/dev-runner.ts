@@ -15,6 +15,11 @@ import {
   touchLocalServiceRegistryRecord,
   writeLocalServiceRegistryRecord,
 } from "../server/src/services/local-service-supervisor.ts";
+import {
+  resolveMigrationConnection,
+  type MigrationConnection,
+} from "../packages/db/src/migration-runtime.ts";
+import { resolveDatabaseTarget } from "../packages/db/src/runtime-config.ts";
 
 // Keep these values local so the dev runner can boot from the server package's
 // tsx context without requiring workspace package resolution first.
@@ -202,6 +207,32 @@ if (existingRunner) {
   process.exit(0);
 }
 
+// Issue #9: own embedded-postgres at the dev-runner level so the migration-
+// status / migrate / server subprocesses don't each instantiate, start, and
+// stop their own embedded cluster. On Windows the per-process start/stop cycle
+// leaks shared memory and reliably hangs the dev startup.
+let ownedPostgres: MigrationConnection | null = null;
+const databaseTarget = resolveDatabaseTarget();
+if (databaseTarget.mode === "embedded-postgres" && !process.env.DATABASE_URL?.trim()) {
+  console.log(
+    `[paperclip] starting embedded PostgreSQL (port ${databaseTarget.port}, data dir ${databaseTarget.dataDir})...`,
+  );
+  try {
+    ownedPostgres = await resolveMigrationConnection();
+  } catch (error) {
+    const err = error instanceof Error ? error : new Error(String(error));
+    process.stderr.write(
+      `[paperclip] failed to start embedded PostgreSQL: ${err.message}\n` +
+        "[paperclip] set DATABASE_URL to an external postgres connection string to bypass embedded mode.\n",
+    );
+    await removeLocalServiceRegistryRecord(devService.serviceKey);
+    process.exit(1);
+  }
+  process.env.DATABASE_URL = ownedPostgres.connectionString;
+  env.DATABASE_URL = ownedPostgres.connectionString;
+  console.log(`[paperclip] embedded PostgreSQL ready via ${ownedPostgres.source}`);
+}
+
 const pnpmBin = process.platform === "win32" ? "pnpm.cmd" : "pnpm";
 let previousSnapshot = collectWatchedSnapshot();
 let dirtyPaths = new Set<string>();
@@ -229,18 +260,39 @@ function toError(error: unknown, context = "Dev runner command failed") {
   }
 }
 
+async function stopOwnedPostgres() {
+  if (!ownedPostgres) return;
+  const instance = ownedPostgres;
+  ownedPostgres = null;
+  try {
+    await instance.stop();
+  } catch (error) {
+    process.stderr.write(
+      `[paperclip] embedded PostgreSQL shutdown error: ${error instanceof Error ? error.message : String(error)}\n`,
+    );
+  }
+}
+
+async function exitWithCleanup(code: number): Promise<never> {
+  try {
+    await removeLocalServiceRegistryRecord(devService.serviceKey);
+  } catch {
+    // ignore — best-effort
+  }
+  await stopOwnedPostgres();
+  process.exit(code);
+}
+
 process.on("uncaughtException", async (error) => {
-  await removeLocalServiceRegistryRecord(devService.serviceKey);
   const err = toError(error, "Uncaught exception in dev runner");
   process.stderr.write(`${err.stack ?? err.message}\n`);
-  process.exit(1);
+  await exitWithCleanup(1);
 });
 
 process.on("unhandledRejection", async (reason) => {
-  await removeLocalServiceRegistryRecord(devService.serviceKey);
   const err = toError(reason, "Unhandled promise rejection in dev runner");
   process.stderr.write(`${err.stack ?? err.message}\n`);
-  process.exit(1);
+  await exitWithCleanup(1);
 });
 
 function formatPendingMigrationSummary(migrations: string[]) {
@@ -251,13 +303,8 @@ function formatPendingMigrationSummary(migrations: string[]) {
 }
 
 function exitForSignal(signal: NodeJS.Signals) {
-  if (signal === "SIGINT") {
-    process.exit(130);
-  }
-  if (signal === "SIGTERM") {
-    process.exit(143);
-  }
-  process.exit(1);
+  const code = signal === "SIGINT" ? 130 : signal === "SIGTERM" ? 143 : 1;
+  void exitWithCleanup(code);
 }
 
 function toRelativePath(absolutePath: string) {
@@ -439,7 +486,7 @@ async function getMigrationStatusPayload() {
         status.stdout ||
         `[paperclip] Command failed with code ${status.code}: pnpm --filter @paperclipai/db exec tsx src/migration-status.ts --json\n`,
     );
-    process.exit(status.code);
+    await exitWithCleanup(status.code);
   }
 
   try {
@@ -501,7 +548,7 @@ async function maybePreflightMigrations(options: { interactive?: boolean; autoAp
       process.stderr.write(
         `[paperclip] Pending migrations detected (${formatPendingMigrationSummary(pendingMigrations)}). Refusing to start watch mode against a stale schema.\n`,
       );
-      process.exit(1);
+      await exitWithCleanup(1);
     }
     return;
   }
@@ -516,7 +563,7 @@ async function maybePreflightMigrations(options: { interactive?: boolean; autoAp
     return;
   }
   if (exit.code !== 0) {
-    process.exit(exit.code);
+    await exitWithCleanup(exit.code);
   }
 
   await refreshPendingMigrations();
@@ -534,7 +581,7 @@ async function buildPluginSdk() {
   }
   if (result.code !== 0) {
     console.error("[paperclip] plugin sdk build failed");
-    process.exit(result.code);
+    await exitWithCleanup(result.code);
   }
 }
 
@@ -633,7 +680,7 @@ async function startServerChild() {
         exitForSignal(signal);
         return;
       }
-      process.exit(code ?? 0);
+      void exitWithCleanup(code ?? 0);
     });
   });
 
@@ -679,7 +726,7 @@ async function maybeAutoRestartChild() {
   } catch (error) {
     const err = toError(error, "Auto-restart failed");
     process.stderr.write(`${err.stack ?? err.message}\n`);
-    process.exit(1);
+    await exitWithCleanup(1);
   } finally {
     restartInFlight = false;
   }
@@ -712,7 +759,6 @@ async function shutdown(signal: NodeJS.Signals) {
   shuttingDown = true;
   clearDevIntervals();
   clearDevServerStatus();
-  await removeLocalServiceRegistryRecord(devService.serviceKey);
 
   if (!child) {
     exitForSignal(signal);
@@ -726,7 +772,7 @@ async function shutdown(signal: NodeJS.Signals) {
     exitForSignal(exit.signal);
     return;
   }
-  process.exit(exit.code ?? 0);
+  await exitWithCleanup(exit.code ?? 0);
 }
 
 process.on("SIGINT", () => {
@@ -742,9 +788,9 @@ installDevIntervals();
 
 if (mode === "watch") {
   const exit = await waitForChildExit();
-  await removeLocalServiceRegistryRecord(devService.serviceKey);
   if (exit.signal) {
     exitForSignal(exit.signal);
+  } else {
+    await exitWithCleanup(exit.code ?? 0);
   }
-  process.exit(exit.code ?? 0);
 }

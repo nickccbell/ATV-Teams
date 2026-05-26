@@ -1,9 +1,12 @@
 import { existsSync, readFileSync, rmSync } from "node:fs";
-import { createServer } from "node:net";
+import { createConnection, createServer } from "node:net";
 import path from "node:path";
 import { ensurePostgresDatabase, getPostgresDataDirectory } from "./client.js";
 import { createEmbeddedPostgresLogBuffer, formatEmbeddedPostgresError } from "./embedded-postgres-error.js";
 import { resolveDatabaseTarget } from "./runtime-config.js";
+
+const POST_STOP_POLL_INTERVAL_MS = 250;
+const POST_STOP_POLL_TIMEOUT_MS = 15_000;
 
 type EmbeddedPostgresInstance = {
   initialise(): Promise<void>;
@@ -63,6 +66,38 @@ async function isPortInUse(port: number): Promise<boolean> {
       resolve(false);
     });
   });
+}
+
+async function isPortAcceptingConnections(port: number): Promise<boolean> {
+  return await new Promise((resolve) => {
+    const socket = createConnection({ host: "127.0.0.1", port });
+    let settled = false;
+    const done = (value: boolean) => {
+      if (settled) return;
+      settled = true;
+      socket.destroy();
+      resolve(value);
+    };
+    socket.once("connect", () => done(true));
+    socket.once("error", () => done(false));
+    socket.setTimeout(1_000, () => done(false));
+  });
+}
+
+async function waitForEmbeddedPostgresShutdown(
+  postmasterPidFile: string,
+  port: number,
+): Promise<void> {
+  const deadline = Date.now() + POST_STOP_POLL_TIMEOUT_MS;
+  while (Date.now() < deadline) {
+    const pidGone = !existsSync(postmasterPidFile);
+    const portClosed = !(await isPortAcceptingConnections(port));
+    if (pidGone && portClosed) return;
+    await new Promise((resolve) => setTimeout(resolve, POST_STOP_POLL_INTERVAL_MS));
+  }
+  process.emitWarning(
+    `Embedded PostgreSQL did not fully release port ${port} (pid file: ${postmasterPidFile}) within ${POST_STOP_POLL_TIMEOUT_MS}ms after stop(). Subsequent starts may fail; see issue #9.`,
+  );
 }
 
 async function findAvailablePort(startPort: number): Promise<number> {
@@ -176,6 +211,12 @@ async function ensureEmbeddedPostgresConnection(
     source: `embedded-postgres@${selectedPort}`,
     stop: async () => {
       await instance.stop();
+      // embedded-postgres@18.1.0-beta.16 returns from stop() before the OS has
+      // fully released the data dir/shared memory on Windows. Poll for full
+      // teardown (postmaster.pid gone + port refusing connections) so that
+      // subsequent start() calls don't trip on "shared memory still in use".
+      // See issue #9.
+      await waitForEmbeddedPostgresShutdown(postmasterPidFile, selectedPort);
     },
   };
 }
