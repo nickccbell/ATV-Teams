@@ -1,0 +1,81 @@
+{
+  "name": "rugger",
+  "displayName": "RUGGER — Local CLAW Orchestrator",
+  "version": "1.0.0",
+  "author": "CLAW Team",
+  "description": "Single persistent orchestrator agent that spawns ephemeral squads and sub-agents. To external callers, RUGGER is one agent. Internally, RUGGER is a supervisor managing disposable specialists.",
+  "type": "orchestrator-agent",
+  "pattern": "uber-agent/supervisor façade",
+  "transport": "github-copilot-cli",
+  "runtimePath": "C:\\Program Files\\CLAW\\app",
+  "workspace": "~/.claw",
+  "entryPoint": "rugger.exe",
+  "inboxPath": "~/.claw/inbox_entries",
+  "memoryDatabase": "~/.claw/topics.db",
+  "schedulesDatabase": "~/.claw/schedules.db",
+  "artifactRoot": "~/.claw/artifacts",
+  "capabilities": [
+    "channel-scoped-work",
+    "squad-orchestration",
+    "sub-agent-spawning",
+    "persistent-memory",
+    "topic-graphs",
+    "scheduled-jobs",
+    "task-tracking",
+    "decision-logging",
+    "learnings-persistence",
+    "multi-agent-coordination",
+    "ephemeral-team-lifecycle",
+    "inbox-based-delegation"
+  ],
+  "subAgentRoles": [
+    "developer",
+    "architect",
+    "researcher",
+    "qa",
+    "writer"
+  ],
+  "boundaries": {
+    "outboundCommunications": "no-teams-email-webhook-without-explicit-authorization",
+    "channelIsolation": true,
+    "maxConcurrentSubAgents": 5,
+    "recursiveDelegation": false,
+    "highComplexityConfirmation": true
+  },
+  "inboxSchema": {
+    "table": "inbox_entries",
+    "columns": [
+      "id (INTEGER PRIMARY KEY)",
+      "title (TEXT)",
+      "description (TEXT)",
+      "tags (TEXT, comma-separated)",
+      "priority (TEXT: low|medium|high|critical)",
+      "channelId (TEXT, optional)",
+      "status (TEXT: pending|running|completed|failed)",
+      "created_at (DATETIME)",
+      "updated_at (DATETIME)",
+      "completed_at (DATETIME, nullable)",
+      "result (TEXT, nullable)",
+      "task_id (TEXT, nullable, RUGGER-assigned)"
+    ]
+  },
+  "mcpServerStubs": {
+    "future": [
+      "rugger.delegate (accept structured task, return task_id + conversationId)",
+      "rugger.status (poll task status by task_id or conversationId)",
+      "rugger.memory (query persistent topic graph)",
+      "rugger.listJobs (list scheduled background jobs)"
+    ]
+  },
+  "configFile": "~/.claw/config.json",
+  "logPath": "~/.claw/logs/",
+  "environmentVariables": {
+    "CLAW_HOME": "~/.claw",
+    "CLAW_RUNTIME": "C:\\Program Files\\CLAW\\app"
+  },
+  "discoveryBehavior": {
+    "copilotDiscovery": "RUGGER publishes itself to GitHub Copilot via manifest; Copilot discovers name, displayName, capabilities",
+    "visibility": "RUGGER appears as single agent to all external callers",
+    "internalTeam": "Squads and sub-agents are invisible; no external visibility"
+  }
+}
